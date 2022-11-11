@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Resources.Styles.Styling">
+
+    <Color x:Key="backgroundColor">#18171F</Color>
+    <Color x:Key="Secondary">#DFD8F7</Color>
+    <Color x:Key="Tertiary">#2B0B98</Color>
+
+    <Style TargetType="Label" x:Key="lblTitle">
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="TextColor" Value="#F2F2F2"/>
+    </Style>
+</ResourceDictionary>

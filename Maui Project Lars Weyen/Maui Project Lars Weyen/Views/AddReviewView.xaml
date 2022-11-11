@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Views.AddReviewView"
+             Shell.NavBarIsVisible="False"
+             xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
+             x:DataType="viewmodel:AddReviewModel"
+             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
+             >
+    <ScrollView>
+        <VerticalStackLayout Margin="10" Spacing="5">
+            <Label 
+            Text="Add Review"
+            FontSize="20" 
+            FontFamily="Bold"/>
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Search game"
+                   FontSize="16"
+                   FontFamily="Semibold"
+                   Opacity=".8"/>
+                <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686">
+                    <Entry Placeholder="Call of Duty, Elden Ring, ..." BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" TextChanged="Entry_TextChanged" x:Name="entrySearch" Text="{Binding EntrySearch}"/>
+                </Frame>
+                <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
+                    <VerticalStackLayout>
+                        <Image Source="{Binding SelectedGame.cover.image_id,StringFormat='https://images.igdb.com/igdb/image/upload/t_screenshot_med/{0}.jpg'}"  Aspect="AspectFill"  IsVisible="{Binding ImageVisable}"/>
+                        <CollectionView IsVisible="{Binding CollectionVisable}" 
+                                        HeightRequest="230"
+                                        ItemsSource="{Binding Games}"
+                                        ItemsLayout="VerticalGrid,2"
+                                        Margin="0,10,0,0">
+                            <CollectionView.EmptyView>
+                                <Image Source="emptyimage.png" WidthRequest="57" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </CollectionView.EmptyView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:Game">
+                                    <Frame Padding="0" IsClippedToBounds="True" Margin="20" BackgroundColor="Transparent" BorderColor="Transparent">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AddReviewModel}},Path=SelectGameCommand}"/>
+                                        </Frame.GestureRecognizers>
+                                        <Image Source="{Binding cover.image_id,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" />
+                                    </Frame>
+                                    
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Frame>
+                <Label Text="{Binding SelectedGame.name}"
+                       FontFamily="Semibold"
+                       FontSize="20"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Review description"
+                   FontSize="16"
+                   FontFamily="Semibold"
+                   Opacity=".8"/>
+                <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" MinimumHeightRequest="245" HeightRequest="245">
+                    <Entry Placeholder="Your review ..." BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" Text="{Binding ReviewDescription}"/>
+                </Frame>
+            </VerticalStackLayout>
+            <Label Text="Your rating"
+               FontSize="16"
+                   FontFamily="Semibold"
+                   Opacity=".8"
+               Margin="0,5,0,5"/>
+            <HorizontalStackLayout Spacing="80">
+                <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
+                    <inputs:SfComboBox x:Name="combobox" WidthRequest="50" 
+                               BackgroundColor="#212026" 
+                               ItemsSource="{Binding Numbers}"
+                               TextColor="#C2C2C2"
+                               DropDownIconColor="White"
+                               SelectedItem="{Binding SelectedNumber}"/>
+                </Frame>
+
+                <Button Text="Post" FontFamily="Semibold" 
+                    x:Name="btnSignIn"
+                    FontSize="15"                    
+                    TextColor="#252525" 
+                    BackgroundColor="#ECECEC"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="52"      
+                    WidthRequest="231"
+                        Command="{Binding AddReviewCommand}"
+                    />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

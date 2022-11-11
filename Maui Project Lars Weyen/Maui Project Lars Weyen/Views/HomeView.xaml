@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Views.HomeView"
+             Title=""
+             xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
+             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
+             x:DataType="viewmodel:HomeViewModel"
+             Shell.TabBarBackgroundColor="Transparent"
+             BackgroundColor="#18171F">
+    <VerticalStackLayout >
+        <Label 
+            Text="{Binding user.Username}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button Text="Logout"
+                Command="{Binding SignOutCommand}"/>
+        <Image Source="{Binding user.ProfilePicUrl}"/>
+    </VerticalStackLayout>
+</ContentPage>

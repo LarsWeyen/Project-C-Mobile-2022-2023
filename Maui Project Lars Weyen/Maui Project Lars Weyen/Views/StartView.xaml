@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.StartView"
+             BackgroundColor="#18171F"
+             Shell.BackgroundColor="#18171F"
+             Title="d"
+             Shell.TitleColor="Transparent"
+             >
+
+    <VerticalStackLayout Spacing="20" Padding="10" Margin="0,20,0,0">
+        <Image Source="Images/startimage.svg"/>
+        <Label FontFamily="Bold" Text="Share your gaming expierence" FontSize="36" HorizontalTextAlignment="Center"/>
+        <Label FontFamily="Medium" 
+               Text="Keep your finished games together. Rate your favorite games. Find new games to play." 
+               FontSize="16" 
+               Opacity=".7"
+               HorizontalTextAlignment="Center"
+               WidthRequest="280"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="0,60,0,0">
+            <Button Text="Register" FontFamily="Semibold" 
+                    x:Name="btnRegister"
+                    FontSize="15" 
+                    TextColor="#252525" 
+                    BackgroundColor="#ECECEC"
+                    WidthRequest="122"
+                    HeightRequest="52"
+                    Clicked="btnRegister_Clicked"/>
+            <Button Text="Sign in" 
+                    x:Name="btnSignIn"
+                    FontFamily="Semibold" 
+                    FontSize="15" 
+                    TextColor="#E6E6E6" 
+                    BackgroundColor="#393939"
+                    WidthRequest="122"
+                    HeightRequest="52"
+                    Clicked="btnSignIn_Clicked"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

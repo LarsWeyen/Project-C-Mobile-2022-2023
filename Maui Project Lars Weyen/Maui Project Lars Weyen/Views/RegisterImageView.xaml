@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Views.RegisterImageView"
+             Title="RegisterImageView"
+             xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
+             x:DataType="viewmodel:StartViewModel">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IconOverride="backarrow.png"/>
+    </Shell.BackButtonBehavior>
+
+    <VerticalStackLayout Margin="20" Spacing="50">
+        <VerticalStackLayout>
+            <Label 
+            Text="Create new Account"
+            FontFamily="Bold"
+            FontSize="32"
+            />
+            <Label 
+            Text="and start discovering"
+            FontFamily="Bold"
+            FontSize="28"           
+            Opacity=".8"
+            TextColor="#F2F2F2"/>
+            
+           
+            
+            
+        </VerticalStackLayout>
+
+
+        <VerticalStackLayout Spacing="20">
+            <HorizontalStackLayout Spacing="30" HorizontalOptions="Center">
+                <Frame CornerRadius="999" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
+                    <Image Source="{Binding ProfilePIC.Source}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill"/>
+                </Frame>
+                <Button Text="Choose Image" FontSize="14"
+                        FontFamily="Regular"
+                        TextColor="#E8E8E8"
+                        BackgroundColor="#212026"
+                        BorderColor="#868686"
+                        BorderWidth="0.5"
+                        WidthRequest="135"
+                        HeightRequest="43"
+                        Command="{Binding ChooseImageCommand}"
+                       />
+
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout Margin="0,120,0,0" Spacing="10">
+            <Button Text="Register" FontFamily="Semibold" 
+                    x:Name="btnRegister"
+                    FontSize="15" 
+                    TextColor="#252525" 
+                    BackgroundColor="#ECECEC"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="52"  
+                    Command="{Binding RegisterCommand}"
+                    />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

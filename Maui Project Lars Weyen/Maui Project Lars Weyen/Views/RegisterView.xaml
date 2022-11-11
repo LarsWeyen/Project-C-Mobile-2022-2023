@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Views.RegisterView"
+             Title=""
+             Shell.BackgroundColor="#18171F"
+             BackgroundColor="#18171F"
+             xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
+             x:DataType="viewmodel:StartViewModel"
+             >
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IconOverride="backarrow.png"/>
+    </Shell.BackButtonBehavior>
+    
+    <VerticalStackLayout Margin="20" Spacing="50">
+        <VerticalStackLayout>
+            <Label 
+            Text="Create new Account"
+            FontFamily="Bold"
+            FontSize="32"
+            />
+            <Label 
+            Text="and start discovering"
+            FontFamily="Bold"
+            FontSize="28"           
+            Opacity=".8"
+            TextColor="#F2F2F2"/>
+        </VerticalStackLayout>
+        
+
+        <VerticalStackLayout Spacing="20">
+            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686">
+                <Entry Placeholder="Username" BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" Text="{Binding username}"/>
+            </Frame>
+            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686">
+                <Entry Placeholder="Email" BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" Text="{Binding email}"/>
+            </Frame>
+            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686">
+                <Entry Placeholder="Password" BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" IsPassword="True" HeightRequest="45" Text="{Binding password}"/>
+            </Frame>
+        </VerticalStackLayout>
+        <VerticalStackLayout Margin="0,120,0,0" Spacing="10">
+            <HorizontalStackLayout Spacing="6" HorizontalOptions="Center">
+                <Label Text="Already have an account?" Opacity=".6" FontSize="16" FontFamily="Medium"/>
+                <Label Text="Sign In" FontSize="16" FontFamily="Medium">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToSignInPageCommand}"/>
+                    </Label.GestureRecognizers>          
+                </Label>
+            </HorizontalStackLayout>
+            <Button Text="Continue" FontFamily="Semibold" 
+                    x:Name="btnRegister"
+                    FontSize="15" 
+                    TextColor="#252525" 
+                    BackgroundColor="#ECECEC"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="52"  
+                    Command="{Binding GoToNextRegisterPageCommand}"
+                    />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

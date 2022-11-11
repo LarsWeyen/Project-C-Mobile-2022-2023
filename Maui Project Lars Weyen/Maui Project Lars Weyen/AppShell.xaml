@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Maui_Project_Lars_Weyen.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui_Project_Lars_Weyen"
+    xmlns:views="clr-namespace:Maui_Project_Lars_Weyen.Views"
+    FlyoutBehavior="Disabled"
+    Shell.TabBarTitleColor="#9CD1C0"
+    >
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:StartView}"
+        Route="StartView" 
+        />
+
+    <TabBar>
+        <Tab Title="Home" Icon="home_icon.svg">
+            <ShellContent  ContentTemplate="{DataTemplate views:HomeView}" Route="HomeView"/>
+                
+            </Tab>
+        <Tab Title="Trending" Icon="trending_icon.svg">
+            <ShellContent  ContentTemplate="{DataTemplate views:TrendingView}" Route="TrendingView"/>
+            </Tab>
+        <Tab Title="Search" Icon="search_icon.svg">
+            <ShellContent   ContentTemplate="{DataTemplate views:SearchView}" Route="SearchView"/>
+            </Tab>
+        <Tab Icon="profile_icon.svg" Title="Profile">
+            <ShellContent  ContentTemplate="{DataTemplate views:ProfileView}" Route="ProfileView"/>
+            </Tab>
+        </TabBar>
+       
+    
+    
+    
+</Shell>
