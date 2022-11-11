@@ -10,8 +10,11 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 
 # Logboek
 *Beknopt logboek met per datum een ingave over wat je die dag gedaan hebt (grote lijnen). Zorg dat dit overzicht er netjes uitziet op GitHub! Bijvoorbeeld:*
-* *01/01/2022: Afwerken detail pagina, start aanmaak SQLite DB* 
-* *02/01/2022: Opzoeken informatie Geolocation, aanmaak ContactView* 
+* *22/10/2022: Aanmaken van project en proberen verbinding te maken met mijn API*
+* *23/10/2022: Start, registreer en login scherm maken - Zorgen dat de gebruiker kan registreren en inloggen*
+* *04/11/2022: Research doen om te kijken welke API calls ik moet maken naar de IGDB Game database API*
+* *10/11/2022: Profiel van gebruiker stylen, review toevoegen pagina gemaakt*
+* *11/11/2022: Tabbar toegevoegd, Search pagina, Profiel functies: toont aantal likes, aantal reviews en de reviews zelf dat de gebruiker heeft. Reviews kunnen toegevoegd worden*
 
 # Optioneel: Screenshots
 *Voorzie eventueel enkele screenshots van je app in actie.*
