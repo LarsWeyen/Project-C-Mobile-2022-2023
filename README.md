@@ -15,7 +15,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *04/11/2022: Research doen om te kijken welke API calls ik moet maken naar de IGDB Game database API*
 * *10/11/2022: Profiel van gebruiker stylen, review toevoegen pagina gemaakt*
 * *11/11/2022: Tabbar toegevoegd, Search pagina, Profiel functies: toont aantal likes, aantal reviews en de reviews zelf dat de gebruiker heeft. Reviews kunnen toegevoegd worden*
-* *12/11/2022: Er voor gezorgt dat de GameView pagina een overzicht met informatie van de Game bevat*
+* *12/11/2022: Er voor gezorgt dat de GameView pagina een overzicht met informatie en de reviews van de game bevat*
 
 # Optioneel: Screenshots
 *Voorzie eventueel enkele screenshots van je app in actie.*
