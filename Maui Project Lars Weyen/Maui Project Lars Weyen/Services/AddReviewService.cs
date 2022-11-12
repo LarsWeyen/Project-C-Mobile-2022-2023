@@ -21,7 +21,7 @@ namespace Maui_Project_Lars_Weyen.Services
 
         public async Task<List<Game>> SearchGames(string entrySearch)
         {
-            var content = new StringContent($"fields name,cover.image_id,videos.*;where name ~ *\"{entrySearch}\"* & version_parent = null & category = 0;", Encoding.UTF8, "text/plain");
+            var content = new StringContent($"fields name,cover.image_id,videos.*;where name ~ *\"{entrySearch}\"* & version_parent = null & category = 0 & cover.image_id != null;", Encoding.UTF8, "text/plain");
             var response = await client.PostAsync("https://api.igdb.com/v4/games/", content);
             var responseString = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<List<Game>>(responseString);

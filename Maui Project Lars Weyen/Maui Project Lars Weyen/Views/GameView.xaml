@@ -2,11 +2,84 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui_Project_Lars_Weyen.Views.GameView"
-             Title="GameView">
+             Title="GameView"
+             Shell.NavBarIsVisible="False"
+             xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
+             x:DataType="viewmodel:GameViewModel">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid ColumnDefinitions="300,85" 
+              HeightRequest="200">
+            <Image Source="testgameimage.png" Grid.ColumnSpan="2" 
+               Aspect="AspectFill"         
+               />
+            <Rectangle Grid.ColumnSpan="2" Opacity="0.8" HeightRequest="100" WidthRequest="500" VerticalOptions="End" Margin="0,0,0,-1">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="Black" Offset="0" />
+                        <GradientStop Color="Transparent" Offset="1" />
+
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+
+            </Rectangle>
+            <Label Text="Metal Gear Rising: Revengeance" 
+                   VerticalOptions="End"
+                   Margin="10"
+                   FontFamily="Bold"
+                   FontSize="20"
+                   TextColor="#E8E8E8"/>
+            <Frame CornerRadius="999" IsClippedToBounds="True" 
+                   WidthRequest="48" HeightRequest="48" Padding="0" 
+                   BackgroundColor="Transparent" BorderColor="#868686" 
+                   Grid.Column="1" VerticalOptions="End" Margin="5"
+                   >
+                <Label Text="5.6"
+                       FontSize="15"
+                       FontFamily="Semibold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+            </Frame>
+        </Grid>
+        <HorizontalStackLayout HorizontalOptions="StartAndExpand">
+            <ContentView BackgroundColor="Gray">
+                <ContentView BackgroundColor="{Binding Overview}" Padding="-1,-1,0,2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <HorizontalStackLayout BackgroundColor="#1A1921" Spacing="25" Padding="30,0" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label Text="Overview" 
+                           Padding="10"
+                           FontSize="20"
+                           FontFamily="Semibold"
+                               TextColor="{Binding OverviewLabel}"
+                               WidthRequest="138.5"
+                               Margin="5,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectOverviewCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                </ContentView>
+            </ContentView>
+            <ContentView BackgroundColor="Gray">
+                <ContentView BackgroundColor="{Binding Reviews}" Padding="-1,-1,0,2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <HorizontalStackLayout BackgroundColor="#1A1921" Spacing="25" Padding="30,0" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label Text="Reviews" 
+                           Padding="10"
+                           FontSize="20"
+                           FontFamily="Semibold"
+                               TextColor="{Binding ReviewsLabel}"
+                               WidthRequest="138.5"
+                               Margin="10,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectReviewsCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </HorizontalStackLayout>
+                </ContentView>
+            </ContentView>
+        </HorizontalStackLayout>
+        <VerticalStackLayout>
+            <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10">
+            </Frame>
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

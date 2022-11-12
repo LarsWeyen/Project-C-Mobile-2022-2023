@@ -20,7 +20,7 @@
                 
             </Tab>
         <Tab Title="Trending" Icon="trending_icon.svg">
-            <ShellContent  ContentTemplate="{DataTemplate views:TrendingView}" Route="TrendingView"/>
+            <ShellContent  ContentTemplate="{DataTemplate views:GameView}" Route="GameView"/>
             </Tab>
         <Tab Title="Search" Icon="search_icon.svg">
             <ShellContent   ContentTemplate="{DataTemplate views:SearchView}" Route="SearchView"/>
