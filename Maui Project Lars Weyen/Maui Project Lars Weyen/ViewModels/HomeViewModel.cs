@@ -29,7 +29,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
 
         public HomeViewModel()
         {
-           user = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
+           
         }
         
        

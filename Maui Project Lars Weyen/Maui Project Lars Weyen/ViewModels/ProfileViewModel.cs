@@ -31,7 +31,11 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         }
         private async void GetProfile()
         {
-            UserInfo = await service.GetUserByEmail();
+            if (UserInfo is null)
+            {
+                UserInfo = await service.GetUserByEmail();
+            }
+            
         }
 
         [RelayCommand]
@@ -43,6 +47,8 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         private async void GetReviews()
         {
+            if (Reviews != null)
+                return;
            Reviews = await service.GetUserReviews();
         }
 

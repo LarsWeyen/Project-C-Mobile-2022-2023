@@ -36,5 +36,20 @@ namespace Mobile_Project_Api.Business
             }
             return dv;
         }
+        public static DataTable GetGameReviews(int gameId)
+        {
+            var dv = new DataTable();
+            try
+            {
+                var reviewData = new ReviewData();
+                var result = reviewData.SelectReviewsByGameId(gameId);
+                dv = result.DataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            return dv;
+        }
     }
 }

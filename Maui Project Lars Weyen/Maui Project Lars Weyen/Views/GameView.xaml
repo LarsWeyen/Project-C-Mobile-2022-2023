@@ -6,7 +6,8 @@
              Shell.NavBarIsVisible="False"
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
              x:DataType="viewmodel:GameViewModel"
-             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models">
+             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
+             >
     <ScrollView>
     <VerticalStackLayout>
         <Grid ColumnDefinitions="300,85" 
@@ -62,7 +63,7 @@
                 </ContentView>
             </ContentView>
             <ContentView BackgroundColor="Gray">
-                <ContentView BackgroundColor="{Binding Reviews}" Padding="-1,-1,0,2" VerticalOptions="Center" HorizontalOptions="Center">
+                <ContentView BackgroundColor="{Binding ReviewsColor}" Padding="-1,-1,0,2" VerticalOptions="Center" HorizontalOptions="Center">
                     <HorizontalStackLayout BackgroundColor="#1A1921" Spacing="25" Padding="30,0" VerticalOptions="Center" HorizontalOptions="Center">
                         <Label Text="Reviews" 
                            Padding="10"
@@ -82,9 +83,10 @@
         </HorizontalStackLayout>
         
         <VerticalStackLayout>
-            <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10">
-                <VerticalStackLayout Margin="20"
-                                     Spacing="20">
+                <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10" IsVisible="{Binding OverviewVisible}">
+                 <VerticalStackLayout Margin="20"
+                                     Spacing="20"
+                                     >
                     <VerticalStackLayout>
                         <Label Text="Platforms"
                            FontFamily="Semibold"
@@ -189,8 +191,61 @@
                         </CollectionView>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
+                
             </Frame>
-        </VerticalStackLayout>
+                <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10" IsVisible="{Binding ReviewsVisible}">
+                    <CollectionView ItemsSource="{Binding Reviews}">
+                        <CollectionView.EmptyView>
+                            <Label Text="Empty" TextColor="White"/>
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Review">
+                                <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" Margin="12">
+                                    <Grid ColumnDefinitions="80,250"
+                                      RowDefinitions="121,56">
+                                        <Frame CornerRadius="9999"  IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686" 
+                                               WidthRequest="71" 
+                                               HeightRequest="71" 
+                                               HorizontalOptions="Start"
+                                               Margin="5">
+                                            <Frame.GestureRecognizers>
+                                                <!--<TapGestureRecognizer CommandParameter="{Binding .}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProfileViewModel}},Path=GoToSelectedGameCommand}"/>-->
+                                            </Frame.GestureRecognizers>
+                                            <Image Source="{Binding ProfilePicUrl}" Aspect="AspectFill"/>
+                                        </Frame>
+                                        <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="#868686" Grid.Row="1" HorizontalOptions="Start" Margin="10">
+                                            <Label Text="{Binding Rating}"
+                                               FontSize="15"
+                                               FontFamily="Semibold"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center"/>
+                                        </Frame>
+                                        <VerticalStackLayout Grid.Column="1" Margin="10">
+                                            <Label FontSize="15"
+                                           FontFamily="Semibold"
+                                           Text="{Binding Username}"
+                                           />
+                                            <Label Text="{Binding ReviewDescription}"
+                                               Opacity=".7"
+                                               FontFamily="Regular"
+                                               FontSize="12"/>
+                                        </VerticalStackLayout>
+                                        <Label Grid.Row="1" Grid.Column="1"
+                                           Text="Read more ->" 
+                                           VerticalOptions="End"
+                                           HorizontalOptions="End"
+                                           Margin="7"
+                                           FontSize="13"
+                                           FontFamily="SemiBold"
+                                           TextColor="#B6B6B6"/>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+            </VerticalStackLayout>
         
     </VerticalStackLayout>
     </ScrollView>

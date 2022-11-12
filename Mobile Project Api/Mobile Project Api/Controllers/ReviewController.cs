@@ -18,6 +18,7 @@ namespace Mobile_Project_Api.Controllers
             jsonResult = JsonConvert.SerializeObject(dt);
             return Ok(jsonResult);
         }
+       
         [HttpPost]
         public ActionResult AddReview(Review review)
         {

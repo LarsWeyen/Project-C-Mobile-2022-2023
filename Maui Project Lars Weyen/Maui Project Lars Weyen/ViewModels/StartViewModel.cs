@@ -91,7 +91,10 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             var content = new StringContent(JsonConvert.SerializeObject(postData), Encoding.UTF8, "application/json");
             var response = await client.PostAsync("http://192.168.0.145:7777/api/SignIn", content);     
             var responseString = await response.Content.ReadAsStringAsync();
-                
+            if (responseString == "User not found")
+            {
+                return;
+            }
             if (response.IsSuccessStatusCode)
             {
                 if (Preferences.ContainsKey(nameof(App.userInfo)))

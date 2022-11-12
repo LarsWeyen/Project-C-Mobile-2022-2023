@@ -21,7 +21,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [ObservableProperty]
         Color overview;
         [ObservableProperty]
-        Color reviews;
+        Color reviewsColor;
         [ObservableProperty]
         Color overviewLabel;
         [ObservableProperty]
@@ -30,6 +30,12 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         Game game;
         [ObservableProperty]
         int gameId;
+        [ObservableProperty]
+        bool overviewVisible;
+        [ObservableProperty]
+        bool reviewsVisible;
+        [ObservableProperty]
+        List<Review> reviews;
 
         GameService service;
         public GameViewModel(GameService service)
@@ -42,26 +48,37 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         private void SelectOverview()
         {
+            OverviewVisible = true;
+            ReviewsVisible = false;
             string selected = "#9CD1C0";          
             Overview = Color.FromArgb(selected);
-            Reviews = Colors.Black;
+            ReviewsColor = Colors.Black;
             ReviewsLabel = Colors.White;
             OverviewLabel = Color.FromArgb(selected); 
         }
         [RelayCommand]
         private void SelectReviews()
         {
+            OverviewVisible = false;
+            ReviewsVisible = true;
             string selected = "#9CD1C0";
             Overview = Colors.Black;
-            Reviews = Color.FromArgb(selected);
+            ReviewsColor = Color.FromArgb(selected);
             OverviewLabel = Colors.White;
             ReviewsLabel = Color.FromArgb(selected);
+            GetReviews();
         }
 
         [RelayCommand]
         async Task GetGame()
         {
              Game = await service.GetGame(GameId);
+        }
+
+        [RelayCommand]
+        async Task GetReviews()
+        {
+            Reviews = await service.GetGameReviews(GameId);
         }
 
         [RelayCommand]

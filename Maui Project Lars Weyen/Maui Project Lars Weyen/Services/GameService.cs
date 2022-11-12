@@ -25,5 +25,12 @@ namespace Maui_Project_Lars_Weyen.Services
             var responseString = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<List<Game>>(responseString).First();
         }
+
+        public async Task<List<Review>> GetGameReviews(int gameId)
+        {
+            var response = await client.GetAsync($"http://192.168.0.145:7777/api/Game?gameId={gameId}");
+            var responseString = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<Review>>(responseString);
+        }
     }
 }
