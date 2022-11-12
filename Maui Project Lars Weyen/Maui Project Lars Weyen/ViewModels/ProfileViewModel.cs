@@ -45,5 +45,11 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         {
            Reviews = await service.GetUserReviews();
         }
+
+        [RelayCommand]
+        async Task GoToSelectedGame(Review review)
+        {
+            await Shell.Current.GoToAsync($"{nameof(GameView)}?GameID={review.GameId}");
+        }
     }
 }

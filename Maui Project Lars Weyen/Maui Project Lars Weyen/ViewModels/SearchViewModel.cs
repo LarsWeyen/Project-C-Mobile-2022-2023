@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Maui_Project_Lars_Weyen.Models;
 using Maui_Project_Lars_Weyen.Services;
+using Maui_Project_Lars_Weyen.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,12 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         async Task SearchGame()
         {
             Games = await searchService.SearchGames(EntrySearch);
+        }
+
+        [RelayCommand]
+        async Task GoToSelectedGame(Game game)
+        {
+            await Shell.Current.GoToAsync($"{nameof(GameView)}?GameID={game.id}");
         }
     }
 }

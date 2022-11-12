@@ -5,11 +5,13 @@
              Title="GameView"
              Shell.NavBarIsVisible="False"
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
-             x:DataType="viewmodel:GameViewModel">
+             x:DataType="viewmodel:GameViewModel"
+             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models">
+    <ScrollView>
     <VerticalStackLayout>
         <Grid ColumnDefinitions="300,85" 
               HeightRequest="200">
-            <Image Source="testgameimage.png" Grid.ColumnSpan="2" 
+                <Image Source="{Binding Game.cover.image_id,StringFormat='https://images.igdb.com/igdb/image/upload/t_screenshot_med/{0}.jpg'}" Grid.ColumnSpan="2" 
                Aspect="AspectFill"         
                />
             <Rectangle Grid.ColumnSpan="2" Opacity="0.8" HeightRequest="100" WidthRequest="500" VerticalOptions="End" Margin="0,0,0,-1">
@@ -22,7 +24,7 @@
                 </Rectangle.Fill>
 
             </Rectangle>
-            <Label Text="Metal Gear Rising: Revengeance" 
+            <Label Text="{Binding Game.name}" 
                    VerticalOptions="End"
                    Margin="10"
                    FontFamily="Bold"
@@ -40,6 +42,7 @@
                        HorizontalOptions="Center"/>
             </Frame>
         </Grid>
+        
         <HorizontalStackLayout HorizontalOptions="StartAndExpand">
             <ContentView BackgroundColor="Gray">
                 <ContentView BackgroundColor="{Binding Overview}" Padding="-1,-1,0,2" VerticalOptions="Center" HorizontalOptions="Center">
@@ -77,9 +80,118 @@
                 </ContentView>
             </ContentView>
         </HorizontalStackLayout>
+        
         <VerticalStackLayout>
             <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10">
+                <VerticalStackLayout Margin="20"
+                                     Spacing="20">
+                    <VerticalStackLayout>
+                        <Label Text="Platforms"
+                           FontFamily="Semibold"
+                           FontSize="15"/>
+                        <FlexLayout Wrap="Wrap"                          
+                            BindableLayout.ItemsSource="{Binding Game.platforms}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="model:Platform">
+                                    <Frame BackgroundColor="#212026"
+                                       BorderColor="#868686"              
+                                       HeightRequest="30"
+                                       Padding="0" Margin="4"
+                                >
+                                        <Label Text="{Binding name}"
+                                           FontSize="10"
+                                           FontFamily="Regular"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Margin="8"
+                                           TextColor="White"/>
+
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="Game Modes"
+                           FontFamily="Semibold"
+                           FontSize="15"/>
+                        <FlexLayout Wrap="Wrap"                          
+                            BindableLayout.ItemsSource="{Binding Game.game_modes}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="model:GameMode">
+                                    <Frame BackgroundColor="#212026"
+                                       BorderColor="#868686"              
+                                       HeightRequest="30"
+                                       Padding="0" Margin="4"
+                                >
+                                        <Label Text="{Binding name}"
+                                           FontSize="10"
+                                           FontFamily="Regular"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Margin="8"
+                                           TextColor="White"/>
+
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="Genres"
+                           FontFamily="Semibold"
+                           FontSize="15"/>
+                        <FlexLayout Wrap="Wrap"                          
+                            BindableLayout.ItemsSource="{Binding Game.genres}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="model:Genre">
+                                    <Frame BackgroundColor="#212026"
+                                       BorderColor="#868686"              
+                                       HeightRequest="30"
+                                       Padding="0" Margin="4"
+                                >
+                                        <Label Text="{Binding name}"
+                                           FontSize="10"
+                                           FontFamily="Regular"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Margin="8"
+                                           TextColor="White"/>
+
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="Genres"
+                           FontFamily="Semibold"
+                           FontSize="15"/>
+                        <CollectionView 
+                        ItemsSource="{Binding Game.similar_games}"
+                        BackgroundColor="#212026"
+                                                             
+                        >
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:SimilarGame">
+                                    <Frame Padding="0" IsClippedToBounds="True" Margin="20" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="142">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}},Path=GoToSelectedGameCommand}"/>
+                                            </Frame.GestureRecognizers>
+                                            <Image Source="{Binding cover.image_id,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" />
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
+        
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

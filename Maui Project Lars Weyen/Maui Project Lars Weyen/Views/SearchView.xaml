@@ -5,7 +5,8 @@
              Title="SearchView"
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
              x:DataType="viewmodel:SearchViewModel"
-             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models">
+             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
+             Shell.NavBarIsVisible="False">
     <VerticalStackLayout Margin="10"
                          Spacing="20">
         <Label 
@@ -25,8 +26,8 @@
                     <DataTemplate x:DataType="model:Game">
                         <Frame Padding="0" IsClippedToBounds="True" Margin="20" BackgroundColor="Transparent" BorderColor="Transparent">
                             <Frame.GestureRecognizers>
-                                <!--<TapGestureRecognizer CommandParameter="{Binding .}"
-                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AddReviewModel}},Path=SelectGameCommand}"/>-->
+                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:SearchViewModel}},Path=GoToSelectedGameCommand}"/>
                             </Frame.GestureRecognizers>
                             <Image Source="{Binding cover.image_id,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" />
                         </Frame>
