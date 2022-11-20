@@ -22,6 +22,14 @@ namespace Maui_Project_Lars_Weyen.Models
     {
         public int id { get; set; }
         public string name { get; set; }
+        public Color selectedBorder { get; set; }
+        public Color selectedLabel { get; set; }
+        public Genre()
+        {
+            string selected = "#868686";
+            selectedBorder = Color.FromArgb(selected);
+            selectedLabel = Colors.White;
+        }
     }
 
     public class Platform

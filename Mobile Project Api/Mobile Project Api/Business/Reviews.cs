@@ -51,5 +51,20 @@ namespace Mobile_Project_Api.Business
             }
             return dv;
         }
+        public static DataTable GetAllReviews(string sortBy,string orderBy)
+        {
+            var dv = new DataTable();
+            try
+            {
+                var reviewData = new ReviewData();
+                var result = reviewData.SelectAllReviewsAndOrder(sortBy,orderBy);
+                dv = result.DataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            return dv;
+        }
     }
 }

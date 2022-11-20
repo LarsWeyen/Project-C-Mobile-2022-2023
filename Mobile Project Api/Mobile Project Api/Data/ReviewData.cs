@@ -59,6 +59,14 @@ namespace Mobile_Project_Api.Data
             result = (SelectResult)base.BaseResult;
             return result;
         }
+        public SelectResult SelectAllReviewsAndOrder(string sortBy, string orderBy)
+        {
+            var result = new SelectResult();
+            string query = $"select * from Reviews order by {sortBy} {orderBy}";
+            base.SelectRecords(query);
+            result = (SelectResult)base.BaseResult;
+            return result;
+        }
 
         public SelectResult Select()
         {

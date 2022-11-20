@@ -8,13 +8,68 @@
              x:DataType="viewmodel:HomeViewModel"
              Shell.TabBarBackgroundColor="Transparent"
              BackgroundColor="#18171F">
-    <VerticalStackLayout >
-        <Label 
-            Text="{Binding user.Username}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="Logout"
-                Command="{Binding SignOutCommand}"/>
-        <Image Source="{Binding user.ProfilePicUrl}"/>
+    <VerticalStackLayout Margin="10">
+        <HorizontalStackLayout Spacing="250">
+            <Label 
+            Text="Home"
+            FontSize="20" 
+            FontFamily="Bold"              
+                />
+            <Button ImageSource="settings_icon.svg"
+                    BackgroundColor="Transparent"
+                    Padding="8"
+                    />
+        </HorizontalStackLayout>
+        
+        <VerticalStackLayout>
+            <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" >
+            <CollectionView ItemsSource="{Binding Reviews}"
+                            HeightRequest="640"
+                            Margin="0,10,0,10">
+                <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Review">
+                            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" Margin="12,12,12,12">
+                                <Grid ColumnDefinitions="122,204"
+                                      RowDefinitions="121,56">
+                                    <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProfileViewModel}},Path=GoToSelectedGameCommand}"/>
+                                        </Frame.GestureRecognizers>
+                                        <Image Source="{Binding GameImageId,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill"/>
+                                    </Frame>
+                                    <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="#868686" Grid.Row="1" HorizontalOptions="Start" Margin="5">
+                                        <Label Text="{Binding Rating}"
+                                               FontSize="15"
+                                               FontFamily="Semibold"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center"/>
+                                    </Frame>
+                                    <VerticalStackLayout Grid.Column="1" Margin="10">
+                                        <Label FontSize="15"
+                                           FontFamily="Semibold"
+                                           Text="{Binding GameNaam}"
+                                           />
+                                        <Label Text="{Binding ReviewDescription}"
+                                               Opacity=".7"
+                                               FontFamily="Regular"
+                                               FontSize="12"/>
+                                    </VerticalStackLayout>
+                                    <Label Grid.Row="1" Grid.Column="1"
+                                           Text="Read more ->" 
+                                           VerticalOptions="End"
+                                           HorizontalOptions="End"
+                                           Margin="7"
+                                           FontSize="13"
+                                           FontFamily="SemiBold"
+                                           TextColor="#B6B6B6"/>
+                                </Grid>
+                            </Frame>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            </Frame>
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

@@ -22,6 +22,7 @@
                         WidthRequest="135"
                         HeightRequest="43"
                            Padding="0">
+                        
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding GoToAddReviewCommand}"/>
                         </Frame.GestureRecognizers>

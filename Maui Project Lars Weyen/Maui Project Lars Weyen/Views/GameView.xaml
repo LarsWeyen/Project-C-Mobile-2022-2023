@@ -166,7 +166,7 @@
                         </FlexLayout>
                     </VerticalStackLayout>
                     <VerticalStackLayout>
-                        <Label Text="Genres"
+                        <Label Text="Similar Games"
                            FontFamily="Semibold"
                            FontSize="15"/>
                         <CollectionView 

@@ -26,5 +26,19 @@ namespace Maui_Project_Lars_Weyen.Services
             return JsonConvert.DeserializeObject<List<Game>>(responseString);
         }
 
+        public async Task<List<Genre>> GetGenres()
+        {
+            var content = new StringContent($"fields name,id;", Encoding.UTF8, "text/plain");
+            var response = await client.PostAsync("https://api.igdb.com/v4/genres/", content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<Genre>>(responseString);
+        }
+        public async Task<List<Game>> SearchByGenre(string genre)
+        {
+            var content = new StringContent($"fields name,genres.name,cover.image_id,videos.video_id;where version_parent = null & category = 0 & cover.image_id != null & genres.name = ({genre});", Encoding.UTF8, "text/plain");
+            var response = await client.PostAsync("https://api.igdb.com/v4/games/", content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<Game>>(responseString);
+        }
     }
 }

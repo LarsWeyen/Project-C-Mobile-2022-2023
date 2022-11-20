@@ -18,11 +18,17 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         List<Game> games;
         [ObservableProperty]
         string entrySearch;
+        [ObservableProperty]
+        List<Genre> genre;
+        [ObservableProperty]
+        List<Genre> selectedGenres;
 
         SearchService searchService;
         public SearchViewModel(SearchService searchService)
         {
             this.searchService = searchService;
+            SelectedGenres = new List<Genre>();
+            GetGenre();
         }
 
         [RelayCommand]
@@ -30,6 +36,47 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         {
             Games = await searchService.SearchGames(EntrySearch);
         }
+
+        [RelayCommand]
+        async Task GetGenre()
+        {
+            Genre = await searchService.GetGenres();
+        }
+        [RelayCommand]
+        async Task SelectedGenre(Genre genre)
+        {
+
+            List<string> genresList = new List<string>();
+            if (SelectedGenres.Contains(genre))
+            {
+                string colorHex = "#868686";
+                genre.selectedBorder = Color.FromArgb(colorHex);
+                genre.selectedLabel = Colors.White;
+                SelectedGenres.Remove(genre);
+                foreach (var item in SelectedGenres)
+                {
+                    genresList.Add($"\"{item.name}\"");
+                }
+            }
+            else
+            {
+                string colorHex = "#9CD1C0";
+                genre.selectedBorder = Color.FromArgb(colorHex);
+                genre.selectedLabel = Color.FromArgb(colorHex);
+                SelectedGenres.Add(genre);
+                
+                foreach (var item in SelectedGenres)
+                {
+                    genresList.Add($"\"{item.name}\"");
+                }
+                
+            }
+            string genres = String.Join(",", genresList);
+
+
+            Games = await searchService.SearchByGenre(genres);
+        }
+
 
         [RelayCommand]
         async Task GoToSelectedGame(Game game)
