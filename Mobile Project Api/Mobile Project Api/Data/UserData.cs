@@ -31,8 +31,8 @@ namespace Mobile_Project_Api.Data
                 //SQL Command
                 StringBuilder insertQuery = new StringBuilder();
                 insertQuery.Append($"Insert INTO {tableName} ");
-                insertQuery.Append($"(Username, Email, Password,PasswordKey,ProfilePicUrl,ProfileLikes) VALUES ");
-                insertQuery.Append($"(@Username, @Email, @Password , @PasswordKey,@ProfilePicUrl,@ProfileLikes); ");
+                insertQuery.Append($"(Username, Email, Password,PasswordKey,ProfilePicUrl) VALUES ");
+                insertQuery.Append($"(@Username, @Email, @Password , @PasswordKey,@ProfilePicUrl); ");
 
                 string passwordKey = GenerateRSA();
                 var encryptedPass = EncryptProvider.AESEncrypt(user.Password, passwordKey);
@@ -43,8 +43,7 @@ namespace Mobile_Project_Api.Data
                     insertCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = user.Email;                  
                     insertCommand.Parameters.Add("@Password", SqlDbType.VarChar).Value = encryptedPass;
                     insertCommand.Parameters.Add("@PasswordKey", SqlDbType.VarChar).Value = passwordKey;
-                    insertCommand.Parameters.Add("@ProfilePicUrl", SqlDbType.VarChar).Value = user.ProfilePicUrl;
-                    insertCommand.Parameters.Add("@ProfileLikes", SqlDbType.VarChar).Value = user.ProfileLikes;
+                    insertCommand.Parameters.Add("@ProfilePicUrl", SqlDbType.VarChar).Value = user.ProfilePicUrl;                  
                     result = InsertRecord(insertCommand);
                 }
             }
@@ -53,6 +52,61 @@ namespace Mobile_Project_Api.Data
                 throw new Exception(ex.Message, ex);
             }
             return result;
+        }
+
+        public UpdateResult Update(User user,bool isUpdatingEmail)
+        {
+            var result = new UpdateResult();
+            if (isUpdatingEmail)
+            {
+                try
+                {
+                    //SQL Command
+                    StringBuilder UpdateQuery = new StringBuilder();
+                    UpdateQuery.Append($"UPDATE {tableName} ");
+                    UpdateQuery.Append($"SET Username = @Username, Email = @Email, Password = @Password, ProfilePicUrl = @ProfilePicUrl, Bio = @Bio where UserId = {user.UserId}");
+
+                    using (SqlCommand UpdateCommand = new SqlCommand(UpdateQuery.ToString()))
+                    {
+                        UpdateCommand.Parameters.Add("@Username", SqlDbType.VarChar).Value = user.Username;
+                        UpdateCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = user.Email;
+                        UpdateCommand.Parameters.Add("@Password", SqlDbType.VarChar).Value = user.Password;
+                        UpdateCommand.Parameters.Add("@ProfilePicUrl", SqlDbType.VarChar).Value = user.ProfilePicUrl;
+                        UpdateCommand.Parameters.Add("@Bio", SqlDbType.VarChar).Value = user.Bio;
+                        result = UpdateRecord(UpdateCommand);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex);
+                }
+                return result;
+            }
+            else
+            {
+                try
+                {
+                    //SQL Command
+                    StringBuilder UpdateQuery = new StringBuilder();
+                    UpdateQuery.Append($"UPDATE {tableName} ");
+                    UpdateQuery.Append($"SET Username = @Username, Password = @Password, ProfilePicUrl = @ProfilePicUrl, Bio = @Bio where UserId = {user.UserId}");
+
+                    using (SqlCommand UpdateCommand = new SqlCommand(UpdateQuery.ToString()))
+                    {
+                        UpdateCommand.Parameters.Add("@Username", SqlDbType.VarChar).Value = user.Username;
+                        UpdateCommand.Parameters.Add("@Password", SqlDbType.VarChar).Value = user.Password;
+                        UpdateCommand.Parameters.Add("@ProfilePicUrl", SqlDbType.VarChar).Value = user.ProfilePicUrl;
+                        UpdateCommand.Parameters.Add("@Bio", SqlDbType.VarChar).Value = user.Bio;
+                        result = UpdateRecord(UpdateCommand);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex);
+                }
+                return result;
+            }
+            
         }
 
         public SelectResult Select()
@@ -67,6 +121,14 @@ namespace Mobile_Project_Api.Data
         {
             var result = new SelectResult();
             string query = $"select * from Users where Email = '{Email}'";          
+            base.SelectRecords(query);
+            result = (SelectResult)base.BaseResult;
+            return result;
+        }
+        public SelectResult SelectUserById(string userId)
+        {
+            var result = new SelectResult();
+            string query = $"select * from Users where UserId = '{userId}'";
             base.SelectRecords(query);
             result = (SelectResult)base.BaseResult;
             return result;

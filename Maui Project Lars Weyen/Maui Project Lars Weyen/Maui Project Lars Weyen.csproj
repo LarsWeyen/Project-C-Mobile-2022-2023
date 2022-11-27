@@ -61,6 +61,7 @@
 	  <None Remove="Resources\Images\search_icon.svg" />
 	  <None Remove="Resources\Images\settings_icon.svg" />
 	  <None Remove="Resources\Images\startimage.svg" />
+	  <None Remove="Resources\Images\subject.svg" />
 	  <None Remove="Resources\Images\test.jpg" />
 	  <None Remove="Resources\Images\testgameimage.png" />
 	  <None Remove="Resources\Images\trending_icon.svg" />
@@ -107,6 +108,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SearchView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TrendingView.xaml">

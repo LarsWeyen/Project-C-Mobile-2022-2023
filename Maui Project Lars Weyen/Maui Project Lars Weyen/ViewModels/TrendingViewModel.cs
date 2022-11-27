@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Maui_Project_Lars_Weyen.Models;
 using Maui_Project_Lars_Weyen.Services;
+using Maui_Project_Lars_Weyen.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,14 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         TrendingService service;
         public TrendingViewModel(TrendingService service)
         {
-            this.service = service;
-            
+            this.service = service;          
         }
 
         [RelayCommand]
         async Task GetGames()
         {
-            carouselGames = await service.GetGames();  
-        }
+            carouselGames = await service.GetGames();
+            
+        }    
     }
 }

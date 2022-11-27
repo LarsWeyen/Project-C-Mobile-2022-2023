@@ -32,6 +32,7 @@ public static class MauiProgram
         builder.Services.AddTransient<RegisterImageView>();
         builder.Services.AddSingleton<AddReviewView>();
         builder.Services.AddSingleton<SearchView>();
+        builder.Services.AddSingleton<SettingsView>();
         builder.Services.AddTransient<GameView>();
         builder.Services.AddTransient<TrendingView>();
 
@@ -41,6 +42,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<AddReviewModel>();
         builder.Services.AddSingleton<SearchViewModel>();
+        builder.Services.AddSingleton<SettingsViewModel>();
         builder.Services.AddTransient<GameViewModel>();
         builder.Services.AddTransient<TrendingViewModel>();
 
@@ -52,6 +54,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<GameService>();
 		builder.Services.AddSingleton<HomeService>();
 		builder.Services.AddSingleton<TrendingService>();
+		builder.Services.AddSingleton<SettingsService>();
 		
         return builder.Build();
 	}

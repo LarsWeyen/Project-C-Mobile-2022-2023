@@ -23,6 +23,21 @@ namespace Mobile_Project_Api.Business
             }
             return dr;
         }
+        public static DataTable GetUserById(string userId)
+        {
+            var dr = new DataTable();
+            try
+            {
+                var userData = new UserData();
+                var result = userData.SelectUserById(userId);
+                dr = result.DataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            return dr;
+        }
         public static InsertResult AddUser(User info)
         {
             var result = new InsertResult();
@@ -52,6 +67,19 @@ namespace Mobile_Project_Api.Business
             }
             return dv;
         }
-        
+        public static UpdateResult UpdateUser(User user,bool isUpdatingEmail)
+        {
+            var result = new UpdateResult();
+            try
+            {
+                var userData = new UserData();
+                userData.Update(user,isUpdatingEmail);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            return result;
+        }
     }
 }
