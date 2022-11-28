@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Maui_Project_Lars_Weyen.Models;
 using Maui_Project_Lars_Weyen.Services;
 using Maui_Project_Lars_Weyen.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             
         }
 
-        private async void GetProfile()
+        private async Task GetProfile()
         {
             if (UserInfo is null)
             {
@@ -124,15 +125,23 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             
             HttpResponseMessage response = await settingsService.UpdateSettings(postData);
             var responseString = await response.Content.ReadAsStringAsync();
+
             if (response.IsSuccessStatusCode)
             {
+                await UpdateUser();
+                await Shell.Current.GoToAsync($"//{nameof(PreferenceView)}");
+            }
+        }
+        private async Task UpdateUser()
+        {
+            
                 if (Preferences.ContainsKey(nameof(App.userInfo)))
                 {
                     Preferences.Remove(nameof(App.userInfo));
                 }
-
-                Preferences.Set(nameof(App.userInfo), responseString);
-            }
+                string responseString = await settingsService.GetUserString();
+                
+            Preferences.Set(nameof(App.userInfo),responseString);       
         }
     }
 }

@@ -34,7 +34,7 @@
                     <Label Text="{Binding UserInfo.Username}" Grid.Row="1" Grid.ColumnSpan="2"
                            FontFamily="Semibold"
                            FontSize="20"/>
-                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." Grid.Row="2" Grid.ColumnSpan="2"
+                    <Label Text="{Binding UserInfo.Bio}" Grid.Row="2" Grid.ColumnSpan="2"
                            FontFamily="Regular"
                            FontSize="14"
                            Opacity=".7"/>

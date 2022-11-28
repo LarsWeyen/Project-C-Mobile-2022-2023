@@ -15,13 +15,14 @@ namespace Maui_Project_Lars_Weyen.Services
         public ProfileService()
         {
             this.client = new HttpClient();
+            string userInfo = Preferences.Get(nameof(App.userInfo), null);
             loggedInUser = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
         }
         public async Task<User> GetUserByEmail()
         {          
             var response = await client.GetAsync($"http://192.168.0.145:7777/api/Account?email={loggedInUser.Email}");
             var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<User[]>(responseString).First();
+            return JsonConvert.DeserializeObject<User>(responseString);
         }
         public async Task<List<Review>> GetUserReviews()
         {

@@ -29,13 +29,10 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             GetProfile();
             GetReviews();
         }
+        [RelayCommand]
         private async void GetProfile()
-        {
-            if (UserInfo is null)
-            {
-                UserInfo = await service.GetUserByEmail();
-            }
-            
+        {          
+             UserInfo = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
         }
 
         [RelayCommand]

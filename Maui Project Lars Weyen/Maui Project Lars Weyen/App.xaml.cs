@@ -19,5 +19,7 @@ public partial class App : Application
 		Routing.RegisterRoute(nameof(AddReviewView), typeof(AddReviewView));
 		Routing.RegisterRoute(nameof(GameView), typeof(GameView));
 		Routing.RegisterRoute(nameof(TrendingView), typeof(TrendingView));
+		Routing.RegisterRoute(nameof(SettingsView), typeof(SettingsView));
+		Routing.RegisterRoute(nameof(PreferenceView), typeof(PreferenceView));
 	}
 }

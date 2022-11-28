@@ -13,11 +13,7 @@ namespace Mobile_Project_Api.Controllers
     [ApiController]
     public class SignInController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult GetLogin()
-        {
-            return Ok("Huts");
-        }
+        
         [HttpPost]
         public ActionResult SignInUser(SignIn user)
         {

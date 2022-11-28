@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Mobile_Project_Api.Business;
 using Mobile_Project_Api.Entities;
 using Newtonsoft.Json;
+using System.Data;
 
 namespace Mobile_Project_Api.Controllers
 {
@@ -15,7 +16,17 @@ namespace Mobile_Project_Api.Controllers
         {
             string jsonResult;
             var dt = Users.GetUser(email);
-            jsonResult = JsonConvert.SerializeObject(dt);
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    string key = dt.Columns[i].ColumnName;
+                    object value = dr[i].ToString();
+                    result.Add(key, value);
+                }
+            }
+            jsonResult = JsonConvert.SerializeObject(result);
             return Ok(jsonResult);
         }
 

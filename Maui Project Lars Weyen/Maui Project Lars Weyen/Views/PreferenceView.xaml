@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Views.PreferenceView"
+             Title="PreferenceView"
+             Shell.NavBarIsVisible="False"
+             xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
+             x:DataType="viewmodel:PrefrencesViewModel">
+    <VerticalStackLayout Margin="10">
+        <VerticalStackLayout>
+            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10">
+                <VerticalStackLayout HorizontalOptions="Center" Margin="0,30,0,40" Spacing="10">
+                    <Frame CornerRadius="999" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686" WidthRequest="130" HeightRequest="130">
+                        <Image Source="{Binding UserInfo.ProfilePicUrl}"   Aspect="AspectFill"/>
+                    </Frame>
+                    <VerticalStackLayout>
+                        <Label 
+                        Text="{Binding UserInfo.Username}"
+                        FontSize="15" 
+                        FontFamily="Semibold"
+                        HorizontalOptions="Center"/>
+                        <Label 
+                        Text="{Binding UserInfo.Email}"
+                        FontSize="12" 
+                        FontFamily="Regular"
+                        HorizontalOptions="Center"
+                        Opacity=".7"/>
+                    </VerticalStackLayout>
+                    <Frame CornerRadius="15"
+                           BackgroundColor="#212026"
+                        BorderColor="#868686"              
+                        WidthRequest="135"
+                        HeightRequest="43"
+                           Padding="0">
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToChangeSettingsCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
+                            <Label Text="Edit Profile" Margin="0,1,0,0"/>
+                            <Image Source="angle_right.svg"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <VerticalStackLayout Margin="10">
+            <Label Text="Content"
+                   FontFamily="Medium"
+                   FontSize="16"/>
+            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026">
+                <Frame BackgroundColor="Transparent" Padding="0" IsClippedToBounds="True" Margin="15" BorderColor="Transparent">
+                    <HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10">
+                            <Image Source="heart_icon.svg"/>
+                            <Label Text="Favorites"
+                   FontFamily="Medium"
+                   FontSize="16"/>
+                        </HorizontalStackLayout>
+                        <Image Source="angle_right.svg" Margin="180,0,0,0"/>
+                    </HorizontalStackLayout>
+                </Frame>
+            </Frame>
+        </VerticalStackLayout>
+        <VerticalStackLayout Margin="10">
+            <Label Text="Prefrences"
+                   FontFamily="Medium"
+                   FontSize="16"/>
+            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026">
+                <VerticalStackLayout>
+                    <Frame BackgroundColor="Transparent" Padding="0" IsClippedToBounds="True" Margin="15" BorderColor="Transparent">
+                        <HorizontalStackLayout>
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="moon_icon.svg"/>
+                                <Label Text="Dark mode"
+                   FontFamily="Medium"
+                   FontSize="16"/>
+                            </HorizontalStackLayout>
+                            <Image Source="angle_right.svg" Margin="180,0,0,0"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+                    <Frame BackgroundColor="Transparent" Padding="0" IsClippedToBounds="True" Margin="15" BorderColor="Transparent">
+                        <HorizontalStackLayout>
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="language_icon.svg"                                    />
+                                <Label Text="Language"
+                   FontFamily="Medium"
+                   FontSize="16"/>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout Margin="130,0,0,0">
+                                <Label Text="English"
+                                       FontFamily="Regular"
+                                       FontSize="12"
+                                       VerticalOptions="Center"
+                                       Opacity=".7"/>
+                                <Image Source="angle_right.svg" />
+                            </HorizontalStackLayout>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <VerticalStackLayout Margin="10">
+            <Label Text="Account"
+                   FontFamily="Medium"
+                   FontSize="16"/>
+            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026">
+                <Frame BackgroundColor="Transparent" Padding="0" IsClippedToBounds="True" Margin="15" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10">
+                            <Image Source="logout_icon.svg"/>
+                            <Label Text="Logout"
+                                   FontFamily="Medium"
+                                   FontSize="16"/>
+                        </HorizontalStackLayout>
+
+                    </HorizontalStackLayout>
+                </Frame>
+            </Frame>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -22,7 +22,13 @@ namespace Maui_Project_Lars_Weyen.Services
         {
             var response = await client.GetAsync($"http://192.168.0.145:7777/api/Account?email={loggedInUser.Email}");
             var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<User[]>(responseString).First();
+            return JsonConvert.DeserializeObject<User>(responseString);
+        }
+
+        public async Task<string> GetUserString()
+        {
+            var response = await client.GetAsync($"http://192.168.0.145:7777/api/Account?email={loggedInUser.Email}");
+            return await response.Content.ReadAsStringAsync();      
         }
 
         public async Task<HttpResponseMessage> UpdateSettings(Dictionary<string,object> postData)

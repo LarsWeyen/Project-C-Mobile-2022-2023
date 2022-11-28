@@ -33,15 +33,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             Reviews = await service.GetReviews("Rating","desc");
         }
 
-        [RelayCommand]
-        async Task SignOut()
-        {
-            if (Preferences.ContainsKey(nameof(App.userInfo)))
-            {
-                Preferences.Remove(nameof(App.userInfo));
-            }
-            await Shell.Current.GoToAsync($"//{nameof(StartView)}");
-        }
+        
 
     }
 }

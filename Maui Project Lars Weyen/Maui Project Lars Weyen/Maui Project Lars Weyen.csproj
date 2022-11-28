@@ -53,9 +53,14 @@
 	  <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
 	  <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
 	  <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
+	  <None Remove="Resources\Images\angle_right.svg" />
 	  <None Remove="Resources\Images\backarrow.png" />
 	  <None Remove="Resources\Images\emptyimage.png" />
+	  <None Remove="Resources\Images\heart_icon.svg" />
 	  <None Remove="Resources\Images\home_icon.svg" />
+	  <None Remove="Resources\Images\language_icon.svg" />
+	  <None Remove="Resources\Images\logout_icon.svg" />
+	  <None Remove="Resources\Images\moon_icon.svg" />
 	  <None Remove="Resources\Images\plus_icon.svg" />
 	  <None Remove="Resources\Images\profile_icon.svg" />
 	  <None Remove="Resources\Images\search_icon.svg" />
@@ -96,6 +101,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PreferenceView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProfileView.xaml">

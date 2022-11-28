@@ -29,7 +29,7 @@
             <ShellContent  ContentTemplate="{DataTemplate views:ProfileView}" Route="ProfileView"/>
             </Tab>
         <Tab Icon="subject.svg" Title="Settings">
-            <ShellContent  ContentTemplate="{DataTemplate views:SettingsView}" Route="SettingsView"/>
+            <ShellContent  ContentTemplate="{DataTemplate views:PreferenceView}" Route="PreferenceView"/>
         </Tab>
     </TabBar>
        

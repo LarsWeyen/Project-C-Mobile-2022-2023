@@ -16,5 +16,6 @@ public partial class ProfileView : ContentPage
     {
         base.OnNavigatedTo(args);
         viewModel.GetReviewsCommand.Execute(args);
+        viewModel.GetProfileCommand.Execute(args);
     }
 }

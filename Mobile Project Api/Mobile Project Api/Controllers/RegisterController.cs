@@ -13,11 +13,7 @@ namespace Mobile_Project_Api.Controllers
     [ApiController]
     public class RegisterController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult GetAccount()
-        {
-            return Ok("huts");
-        }
+        
         [HttpPost]
         public ActionResult<User> RegisterUser(User user)
         {
