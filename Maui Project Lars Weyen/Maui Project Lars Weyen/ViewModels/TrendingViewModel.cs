@@ -5,6 +5,7 @@ using Maui_Project_Lars_Weyen.Services;
 using Maui_Project_Lars_Weyen.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,11 @@ namespace Maui_Project_Lars_Weyen.ViewModels
 {
     [INotifyPropertyChanged]
     public partial class TrendingViewModel
-    {
-        [ObservableProperty]
-        List<Game> carouselGames;
+    {     
         [ObservableProperty]
         Game test;
+
+        public ObservableCollection<Game> Games { get; set; } = new();
 
         TrendingService service;
         public TrendingViewModel(TrendingService service)
@@ -28,8 +29,12 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         async Task GetGames()
         {
-            carouselGames = await service.GetGames();
+            var games = await service.GetGames();
+            foreach (var game in games)
+            {
+                Games.Add(game);
+            }
             
-        }    
+        }
     }
 }
