@@ -6,6 +6,7 @@ namespace Maui_Project_Lars_Weyen;
 public partial class App : Application
 {
 	public static User userInfo;
+	public static bool darkmode;
 	public App()
 	{
 		InitializeComponent();

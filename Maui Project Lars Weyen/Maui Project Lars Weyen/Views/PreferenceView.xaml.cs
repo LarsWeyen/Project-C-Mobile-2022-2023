@@ -17,4 +17,12 @@ public partial class PreferenceView : ContentPage
         base.OnAppearing();
         viewModel.GetUserInfoCommand.Execute(null);
     }
+
+    private void Switch_Toggled(object sender, ToggledEventArgs e)
+    {
+        if (viewModel != null)
+        {
+            viewModel.SwitchDarkmodeCommand.Execute(null);
+        }    
+    }
 }

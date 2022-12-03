@@ -30,7 +30,17 @@ namespace Maui_Project_Lars_Weyen.Services
         {
             var response = await client.GetAsync($"http://192.168.0.145:7777/api/Game?gameId={gameId}");
             var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Review>>(responseString);
+            return JsonConvert.DeserializeObject<List<Review>>(responseString);       
+        }
+        public async Task<HttpResponseMessage> AddToOrRemoveFromFavorites(Dictionary<string, object> postData)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(postData), Encoding.UTF8, "application/json");
+            return await client.PostAsync("http://192.168.0.145:7777/api/Favorites", content);
+        }
+        public async Task<string> SearchForFavorite(int userId,int gameId)
+        {
+            var response = await client.GetAsync($"http://192.168.0.145:7777/api/Favorites?userId={userId}&gameId={gameId}");
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }

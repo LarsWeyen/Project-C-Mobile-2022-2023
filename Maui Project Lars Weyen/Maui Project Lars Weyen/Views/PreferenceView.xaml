@@ -70,13 +70,18 @@
                 <VerticalStackLayout>
                     <Frame BackgroundColor="Transparent" Padding="0" IsClippedToBounds="True" Margin="15" BorderColor="Transparent">
                         <HorizontalStackLayout>
-                            <HorizontalStackLayout Spacing="10">
+                            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                                 <Image Source="moon_icon.svg"/>
                                 <Label Text="Dark mode"
                    FontFamily="Medium"
                    FontSize="16"/>
                             </HorizontalStackLayout>
-                            <Image Source="angle_right.svg" Margin="180,0,0,0"/>
+                            <Switch Margin="130,0,0,0"
+                                    ThumbColor="#9CD1C0"
+                                    OnColor="#7eb5ae"
+                                    Toggled="Switch_Toggled"
+                                    IsToggled="{Binding Darkmode}"
+                                    />
                         </HorizontalStackLayout>
                     </Frame>
                     <Frame BackgroundColor="Transparent" Padding="0" IsClippedToBounds="True" Margin="15" BorderColor="Transparent">
@@ -111,7 +116,7 @@
                     </Frame.GestureRecognizers>
                     <HorizontalStackLayout>
                         <HorizontalStackLayout Spacing="10">
-                            <Image Source="logout_icon.svg"/>
+                            <Image Source="logout_icon.svg" />
                             <Label Text="Logout"
                                    FontFamily="Medium"
                                    FontSize="16"/>

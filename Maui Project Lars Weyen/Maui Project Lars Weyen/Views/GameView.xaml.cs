@@ -17,5 +17,6 @@ public partial class GameView : ContentPage
     {
         base.OnNavigatedTo(args);
         viewModel.GetGameCommand.Execute(null);
+        viewModel.CheckIfFavoritedCommand.Execute(null);
     }
 }

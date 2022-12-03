@@ -3,12 +3,14 @@ using CommunityToolkit.Mvvm.Input;
 using Maui_Project_Lars_Weyen.Models;
 using Maui_Project_Lars_Weyen.Services;
 using Maui_Project_Lars_Weyen.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Java.Interop.JniEnvironment;
 
 
 namespace Maui_Project_Lars_Weyen.ViewModels
@@ -36,13 +38,17 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         bool reviewsVisible;
         [ObservableProperty]
         List<Review> reviews;
+        [ObservableProperty]
+        Color heartFill;
+        [ObservableProperty]
+        User userInfo;
 
         GameService service;
         public GameViewModel(GameService service)
         {
             SelectOverview();
             this.service = service;
-            GetGame();
+            GetProfile();
         }
 
         [RelayCommand]
@@ -85,6 +91,46 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         async Task GoToSelectedGame(SimilarGame game)
         {
             await Shell.Current.GoToAsync($"{nameof(GameView)}?GameID={game.id}");
+        }
+        [RelayCommand]
+        async Task AddToFavorites()
+        {
+            var postData = new Dictionary<string, object>()
+            {
+                {"UserId",UserInfo.UserId },
+                {"GameId",GameId }
+            };
+            var response = await service.AddToOrRemoveFromFavorites(postData);
+            var responseString = await response.Content.ReadAsStringAsync();
+            if (responseString == "Item added")
+            {
+                string colorHex = "#9CD1C0";
+                HeartFill = Color.FromArgb(colorHex);
+            }
+            else
+            {
+                HeartFill = Colors.Transparent;
+            }
+
+        }
+        [RelayCommand]
+        private void GetProfile()
+        {
+            UserInfo = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
+        }
+        [RelayCommand]
+        private async Task CheckIfFavorited()
+        {
+            var response = await service.SearchForFavorite(UserInfo.UserId,GameId);
+            if (response == "IsNotFavorited")
+            {
+                HeartFill = Colors.Transparent;
+            }
+            else
+            {
+                string colorHex = "#9CD1C0";
+                HeartFill = Color.FromArgb(colorHex);
+            }
         }
     }
 }

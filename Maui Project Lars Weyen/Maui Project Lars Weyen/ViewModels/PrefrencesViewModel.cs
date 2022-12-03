@@ -17,6 +17,13 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [ObservableProperty]
         public User userInfo;
 
+        [ObservableProperty]
+        public bool darkmode;
+        public PrefrencesViewModel()
+        {
+            darkmode = Preferences.Get(nameof(App.darkmode), true);
+        }
+
         [RelayCommand]
         async Task SignOut()
         {
@@ -35,6 +42,18 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         public void GetUserInfo()
         {
             UserInfo = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
+        }
+        [RelayCommand]
+        public void SwitchDarkmode()
+        {          
+            if (Preferences.Get(nameof(App.darkmode), true))
+            {
+                Preferences.Set(nameof(App.darkmode), false);
+            }
+            else
+            {
+                Preferences.Set(nameof(App.darkmode), true);
+            }
         }
     }
 }
