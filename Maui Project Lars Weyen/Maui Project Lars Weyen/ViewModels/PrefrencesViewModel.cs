@@ -39,6 +39,11 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             await Shell.Current.GoToAsync($"{nameof(SettingsView)}");
         }
         [RelayCommand]
+        async Task GoToFavorites()
+        {
+            await Shell.Current.GoToAsync($"{nameof(FavoritesView)}");
+        }
+        [RelayCommand]
         public void GetUserInfo()
         {
             UserInfo = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));

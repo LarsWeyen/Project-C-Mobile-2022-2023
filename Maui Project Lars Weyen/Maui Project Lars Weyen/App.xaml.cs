@@ -22,5 +22,6 @@ public partial class App : Application
 		Routing.RegisterRoute(nameof(TrendingView), typeof(TrendingView));
 		Routing.RegisterRoute(nameof(SettingsView), typeof(SettingsView));
 		Routing.RegisterRoute(nameof(PreferenceView), typeof(PreferenceView));
+		Routing.RegisterRoute(nameof(FavoritesView), typeof(FavoritesView));
 	}
 }

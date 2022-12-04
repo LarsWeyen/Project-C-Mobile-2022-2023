@@ -57,6 +57,15 @@ namespace Mobile_Project_Api.Data
             result = (SelectResult)base.BaseResult;
             return result;
         }
+        public SelectResult SelectUserFavorites(int userId)
+        {
+            var result = new SelectResult();
+            string query = $"select * from {tableName} where UserId = '{userId}'";
+
+            base.SelectRecords(query);
+            result = (SelectResult)base.BaseResult;
+            return result;
+        }
         public DeleteResult Remove(Favorite fav)
         {
             var result = new DeleteResult();

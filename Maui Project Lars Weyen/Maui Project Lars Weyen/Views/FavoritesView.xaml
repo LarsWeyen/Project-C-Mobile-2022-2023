@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Views.FavoritesView"
+             xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
+             x:DataType="viewmodel:FavoritesViewModel"
+             xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
+             Shell.BackgroundColor="Transparent">
+    <VerticalStackLayout Margin="10" Spacing="20">
+        <Label 
+            Text="Your Favorites"
+            FontSize="20" 
+            FontFamily="Bold"/>
+        <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" >
+            <CollectionView ItemsLayout="VerticalGrid,2"
+                        ItemsSource="{Binding Games}"
+                        BackgroundColor="#212026"
+                            HeightRequest="470"
+                            Margin="2"
+                        >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Game">
+                        <Frame Padding="0" IsClippedToBounds="True" Margin="20" BackgroundColor="Transparent" BorderColor="Transparent">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FavoritesViewModel}},Path=GoToSelectedGameCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <Image Source="{Binding cover.image_id,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

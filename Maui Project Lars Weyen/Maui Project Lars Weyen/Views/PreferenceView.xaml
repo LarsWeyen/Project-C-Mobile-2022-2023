@@ -50,6 +50,9 @@
                    FontSize="16"/>
             <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026">
                 <Frame BackgroundColor="Transparent" Padding="0" IsClippedToBounds="True" Margin="15" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToFavoritesCommand}"/>
+                    </Frame.GestureRecognizers>
                     <HorizontalStackLayout>
                         <HorizontalStackLayout Spacing="10">
                             <Image Source="heart_icon.svg"/>

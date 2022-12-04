@@ -38,6 +38,21 @@ namespace Mobile_Project_Api.Business
             }
             return dt;
         }
+        public static DataTable GetFavoritesFromUserDataTable(int userId)
+        {
+            var dt = new DataTable();
+            try
+            {
+                var favoriteData = new FavoriteData();
+                var result = favoriteData.SelectUserFavorites(userId);
+                dt = result.DataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            return dt;
+        }
         public static UpdateResult RemoveFavorite(Favorite fav)
         {
             var result = new UpdateResult();
