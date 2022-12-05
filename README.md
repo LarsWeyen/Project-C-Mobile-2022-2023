@@ -16,6 +16,11 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *10/11/2022: Profiel van gebruiker stylen, review toevoegen pagina gemaakt*
 * *11/11/2022: Tabbar toegevoegd, Search pagina, Profiel functies: toont aantal likes, aantal reviews en de reviews zelf dat de gebruiker heeft. Reviews kunnen toegevoegd worden*
 * *12/11/2022: Er voor gezorgt dat de GameView pagina een overzicht met informatie en de reviews van de game bevat*
+* *20/11/2022: Trendingview aangemaakt, Clickable genres zodat je alleen games ziet met die genre, Homepage toont recent reviews*
+* *27/11/2022: Settings view waar je uw Profiel foto, username, ... kan aanpassen*
+* *28/11/2022: Preference view gemaakt waar je darkmode kan aan- uitzetten, uitloggen, favorieten games, taal kiezen.*
+* *03/12/2022: Ervoor gezorgt dat je games als favorieten kan toevoegen*
+* *04/12/2022: Favorites view gemaakt waar je uw favoriete games kan bekijken*
 
 # Optioneel: Screenshots
 *Voorzie eventueel enkele screenshots van je app in actie.*
