@@ -29,9 +29,8 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 *Voorzie een link naar een video*
 
 # Bronnen
-* *Zorg dat je de bronnen vermeld in een lijst.*
-* *Vermeld kort bij elke bron waarvoor je ze gebruikt hebt.*
-* *Zorg voor een verzorgde opmaak.*
+* *https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/shapes/?view=net-maui-7.0 - Heart shape icoontje*
+* *https://youtu.be/dWnGoZY3XiE - Login Flow*
 
 # Future work
 *Wat zou je nog aanpassen/verbeteren mocht je meer tijd hebben? Hoe zou je dit aanpakken?* 
