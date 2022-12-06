@@ -7,6 +7,7 @@ public partial class App : Application
 {
 	public static User userInfo;
 	public static bool darkmode;
+	public static string orderBy;
 	public App()
 	{
 		InitializeComponent();

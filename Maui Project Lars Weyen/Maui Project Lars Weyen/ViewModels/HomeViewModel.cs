@@ -1,7 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maui_Project_Lars_Weyen.Models;
 using Maui_Project_Lars_Weyen.Services;
+using Maui_Project_Lars_Weyen.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -30,10 +32,15 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         async Task GetReviews()
         {
-            Reviews = await service.GetReviews("Rating","desc");
+            Reviews = await service.GetReviews("ReviewId","desc");
         }
 
-        
-
+        [RelayCommand]
+        async Task OpenPopUp()
+        {
+            var result = await App.Current.MainPage.ShowPopupAsync(new SortingPopUp());
+            var sort = (Sorting)result;
+            Reviews = await service.GetReviews(sort.OrderBy,sort.SortBy);
+        }   
     }
 }

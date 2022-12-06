@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Project_Lars_Weyen.Views.SortingPopUp"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Color="#33323C"
+             >
+    <VerticalStackLayout Padding="10" Margin="10">
+        <Label 
+            Text="Order by"
+            FontFamily="Bold"
+             />
+        <VerticalStackLayout Spacing="4">
+            <RadioButton x:Name="rbRecent" Content="Recent" FontFamily="Medium" CheckedChanged="RadioButton_CheckedChanged"/>
+            <RadioButton x:Name="rbRatingH" Content="Rating High" FontFamily="Medium" CheckedChanged="RadioButton_CheckedChanged"/>
+            <RadioButton x:Name="rbRatingL" Content="Rating Low" FontFamily="Medium" CheckedChanged="RadioButton_CheckedChanged"/>
+        </VerticalStackLayout>
+       
+    </VerticalStackLayout>
+</toolkit:Popup>

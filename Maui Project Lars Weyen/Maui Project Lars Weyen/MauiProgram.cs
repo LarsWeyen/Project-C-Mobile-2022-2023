@@ -1,4 +1,5 @@
-﻿using Maui_Project_Lars_Weyen.Services;
+﻿using CommunityToolkit.Maui;
+using Maui_Project_Lars_Weyen.Services;
 using Maui_Project_Lars_Weyen.ViewModels;
 using Maui_Project_Lars_Weyen.Views;
 using Syncfusion.Maui.Core.Hosting;
@@ -15,6 +16,7 @@ public static class MauiProgram
         builder
 			.UseMauiApp<App>()
 			.ConfigureSyncfusionCore()
+            .UseMauiCommunityToolkit()
 			.ConfigureSyncfusionListView()
             .ConfigureFonts(fonts =>
 			{

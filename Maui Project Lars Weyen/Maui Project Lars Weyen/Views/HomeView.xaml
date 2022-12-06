@@ -18,6 +18,7 @@
             <Button ImageSource="settings_icon.svg"
                     BackgroundColor="Transparent"
                     Padding="8"
+                    Command="{Binding OpenPopUpCommand}"
                     />
         </HorizontalStackLayout>
         
