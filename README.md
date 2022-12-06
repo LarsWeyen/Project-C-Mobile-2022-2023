@@ -33,6 +33,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/shapes/?view=net-maui-7.0 - Heart shape icoontje*
 * *https://youtu.be/dWnGoZY3XiE - Login Flow*
 * *https://www.youtube.com/watch?v=0-FaDeCPIhM - Popup tutorial*
+* *https://www.syncfusion.com/blogs/post/dotnet-maui-combobox-control.aspx - Combobox*
 
 # Future work
 *Wat zou je nog aanpassen/verbeteren mocht je meer tijd hebben? Hoe zou je dit aanpakken?* 
