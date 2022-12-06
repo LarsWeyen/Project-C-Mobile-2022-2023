@@ -21,6 +21,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *28/11/2022: Preference view gemaakt waar je darkmode kan aan- uitzetten, uitloggen, favorieten games, taal kiezen.*
 * *03/12/2022: Ervoor gezorgt dat je games als favorieten kan toevoegen*
 * *04/12/2022: Favorites view gemaakt waar je uw favoriete games kan bekijken*
+* *06/12/2022: Popup gemaakt op de homepagina waardoor je kan sorteren op verschillende opties*
 
 # Optioneel: Screenshots
 *Voorzie eventueel enkele screenshots van je app in actie.*
@@ -31,6 +32,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 # Bronnen
 * *https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/shapes/?view=net-maui-7.0 - Heart shape icoontje*
 * *https://youtu.be/dWnGoZY3XiE - Login Flow*
+* *https://www.youtube.com/watch?v=0-FaDeCPIhM - Popup tutorial*
 
 # Future work
 *Wat zou je nog aanpassen/verbeteren mocht je meer tijd hebben? Hoe zou je dit aanpakken?* 
