@@ -17,8 +17,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
 {
     [INotifyPropertyChanged]
     public partial class AddReviewModel
-    {
-        HttpClient client;
+    {      
         [ObservableProperty]
         List<int> numbers;
         [ObservableProperty]

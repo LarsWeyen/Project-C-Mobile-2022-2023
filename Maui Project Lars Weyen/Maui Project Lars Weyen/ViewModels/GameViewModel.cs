@@ -92,6 +92,20 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         {
             await Shell.Current.GoToAsync($"{nameof(GameView)}?GameID={game.id}");
         }
+
+        [RelayCommand]
+        async Task GoToUserProfile(Review review)
+        {
+            if (userInfo.UserId == review.UserId)
+            {
+                await Shell.Current.GoToAsync($"{nameof(ProfileView)}");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync($"{nameof(VisitProfileView)}?UserId={review.UserId}");
+            }
+        }
+
         [RelayCommand]
         async Task AddToFavorites()
         {

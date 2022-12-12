@@ -1,9 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Android.Hardware;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maui_Project_Lars_Weyen.Models;
 using Maui_Project_Lars_Weyen.Services;
 using Maui_Project_Lars_Weyen.Views;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,42 +13,33 @@ using System.Threading.Tasks;
 namespace Maui_Project_Lars_Weyen.ViewModels
 {
     [INotifyPropertyChanged]
-    public partial class ProfileViewModel
+    [QueryProperty(nameof(UserId),"UserId")]
+    public partial class VisitProfileViewModel
     {
-
-        ProfileService service;
-
         [ObservableProperty]
-        private User userInfo;
+        int userId;
         [ObservableProperty]
-        private List<Review> reviews;
+        User userInfo;
+        [ObservableProperty]
+        List<Review> reviews;
 
-        public ProfileViewModel(ProfileService service)
+        VisitUserProfileService service;
+        public VisitProfileViewModel(VisitUserProfileService service)
         {
             this.service = service;
-            GetProfile();
-            GetReviews();
+            
         }
         [RelayCommand]
-        private async void GetProfile()
-        {          
-             UserInfo = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
-        }
-
-        [RelayCommand]
-        async Task GoToAddReview()
+        async Task GetUserProfile()
         {
-            await Shell.Current.GoToAsync($"{nameof(AddReviewView)}");
+            UserInfo = await service.GetUserById(UserId);
         }
 
         [RelayCommand]
         private async Task GetReviews()
-        {
-            if (Reviews != null)
-                return;
-           Reviews = await service.GetUserReviews();
+        {         
+            Reviews = await service.GetUserReviews(UserId);
         }
-
         [RelayCommand]
         async Task GoToSelectedGame(Review review)
         {

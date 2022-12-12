@@ -69,6 +69,7 @@
 	  <None Remove="Resources\Images\subject.svg" />
 	  <None Remove="Resources\Images\test.jpg" />
 	  <None Remove="Resources\Images\testgameimage.png" />
+	  <None Remove="Resources\Images\thumbs_up.svg" />
 	  <None Remove="Resources\Images\trending_icon.svg" />
 	</ItemGroup>
 
@@ -129,6 +130,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TrendingView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\VisitProfileView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

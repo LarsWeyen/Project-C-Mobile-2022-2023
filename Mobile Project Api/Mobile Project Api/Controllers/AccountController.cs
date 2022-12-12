@@ -29,8 +29,25 @@ namespace Mobile_Project_Api.Controllers
             jsonResult = JsonConvert.SerializeObject(result);
             return Ok(jsonResult);
         }
-
-        
+        [Route("userId/{id}")]
+        [HttpGet]
+        public ActionResult GetAccountByUserId(int id)
+        {
+            string jsonResult;
+            var dt = Users.GetUserById(id.ToString());
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    string key = dt.Columns[i].ColumnName;
+                    object value = dr[i].ToString();
+                    result.Add(key, value);
+                }
+            }
+            jsonResult = JsonConvert.SerializeObject(result);
+            return Ok(jsonResult);
+        }
         
     }
 }
