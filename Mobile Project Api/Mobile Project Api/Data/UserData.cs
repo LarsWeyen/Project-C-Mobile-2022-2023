@@ -5,6 +5,7 @@ using NETCore.Encrypt;
 using System.Data;
 using System.Security.Principal;
 using System.Text;
+using Mobile_Project_Api.Business;
 
 namespace Mobile_Project_Api.Data
 {
@@ -49,6 +50,54 @@ namespace Mobile_Project_Api.Data
             }
             catch (Exception ex)
             {
+                throw new Exception(ex.Message, ex);
+            }
+            return result;
+        }
+
+        public UpdateResult LikeProfile(int userId)
+        {
+            var result = new UpdateResult();
+            try
+            {
+                //SQL Command
+                StringBuilder UpdateQuery = new StringBuilder();
+                UpdateQuery.Append($"UPDATE {tableName} ");
+                UpdateQuery.Append($"SET ProfileLikes = ProfileLikes + 1 where UserId = @UserId");
+                using (SqlCommand UpdateCommand = new SqlCommand(UpdateQuery.ToString()))
+                {
+                    UpdateCommand.Parameters.Add("@UserId", SqlDbType.VarChar).Value = userId;
+                    
+                    result = UpdateRecord(UpdateCommand);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message, ex);
+            }
+            return result;
+        }
+
+        public UpdateResult UnLikeProfile(int userId)
+        {
+            var result = new UpdateResult();
+            try
+            {
+                //SQL Command
+                StringBuilder UpdateQuery = new StringBuilder();
+                UpdateQuery.Append($"UPDATE {tableName} ");
+                UpdateQuery.Append($"SET ProfileLikes = ProfileLikes - 1 where UserId = @UserId");
+                using (SqlCommand UpdateCommand = new SqlCommand(UpdateQuery.ToString()))
+                {
+                    UpdateCommand.Parameters.Add("@UserId", SqlDbType.VarChar).Value = userId;
+
+                    result = UpdateRecord(UpdateCommand);
+                }
+            }
+            catch (Exception ex)
+            {
+
                 throw new Exception(ex.Message, ex);
             }
             return result;
