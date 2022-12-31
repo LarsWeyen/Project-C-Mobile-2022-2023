@@ -22,6 +22,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *03/12/2022: Ervoor gezorgt dat je games als favorieten kan toevoegen*
 * *04/12/2022: Favorites view gemaakt waar je uw favoriete games kan bekijken*
 * *06/12/2022: Popup gemaakt op de homepagina waardoor je kan sorteren op verschillende opties*
+* *31/12/2022: Ervoor gezorgt dat als je op een review drukt de volledige review kan bekijken*
 
 # Optioneel: Screenshots
 *Voorzie eventueel enkele screenshots van je app in actie.*
