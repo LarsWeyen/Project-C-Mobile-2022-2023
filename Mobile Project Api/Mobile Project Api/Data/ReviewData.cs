@@ -50,6 +50,14 @@ namespace Mobile_Project_Api.Data
             result = (SelectResult)base.BaseResult;
             return result;
         }
+        public SelectResult SelectReviewByReviewId(int reviewId)
+        {
+            var result = new SelectResult();
+            string query = $"select r.*,u.Username,u.ProfilePicUrl from Reviews r INNER JOIN Users u On r.UserId=u.UserId where ReviewId = {reviewId}";
+            base.SelectRecords(query);
+            result = (SelectResult)base.BaseResult;
+            return result;
+        }
 
         public SelectResult SelectReviewsByGameId(int gameId)
         {

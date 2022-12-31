@@ -31,7 +31,7 @@
                            FontFamily="Semibold"
                            FontSize="15"/>
             <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" HeightRequest="90" >
-                <Entry Placeholder="Tell us about yourself" BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" Text="{Binding Bio}" />
+                <Editor Placeholder="Tell us about yourself" BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" Text="{Binding Bio}" AutoSize="TextChanges"/>
             </Frame>
         </VerticalStackLayout>
         <VerticalStackLayout>

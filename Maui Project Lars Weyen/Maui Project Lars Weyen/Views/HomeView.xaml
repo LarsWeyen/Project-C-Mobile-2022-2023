@@ -30,12 +30,16 @@
                 <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Review">
                             <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" Margin="12,12,12,12">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewModel}},Path=OpenReviewCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid ColumnDefinitions="122,204"
                                       RowDefinitions="121,56">
                                     <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
                                         <Frame.GestureRecognizers>
                                             <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProfileViewModel}},Path=GoToSelectedGameCommand}"/>
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewModel}},Path=GoToSelectedGameCommand}"/>
                                         </Frame.GestureRecognizers>
                                         <Image Source="{Binding GameImageId,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill"/>
                                     </Frame>

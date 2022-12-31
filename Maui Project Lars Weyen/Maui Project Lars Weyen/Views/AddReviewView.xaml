@@ -58,7 +58,7 @@
                    FontFamily="Semibold"
                    Opacity=".8"/>
                 <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" MinimumHeightRequest="245" HeightRequest="245">
-                    <Entry Placeholder="Your review ..." BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" Text="{Binding ReviewDescription}"/>
+                    <Editor Placeholder="Your review ..." BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" Text="{Binding ReviewDescription}" AutoSize="TextChanges" MaxLength="255"/>
                 </Frame>
             </VerticalStackLayout>
             <Label Text="Your rating"

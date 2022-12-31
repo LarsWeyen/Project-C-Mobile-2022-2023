@@ -15,7 +15,7 @@ namespace Maui_Project_Lars_Weyen.Services
         {
             this.client = new HttpClient();
             client.DefaultRequestHeaders.Add("Client-ID", "cqehu5ezjkda8sikmpmwqs5596f4zv");
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer 81vpltw4pk08c1x65t3l6abv2qzylc");
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer a7jhn83u76snrv5htrdkt8ia8c7t23");
         }
 
         public async Task<Game> GetGame(int id)

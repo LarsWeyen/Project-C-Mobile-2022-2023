@@ -11,14 +11,23 @@ namespace Mobile_Project_Api.Controllers
     public class ReviewController : ControllerBase
     {
         [HttpGet]
-        public ActionResult GetReviewsFromUser(int userId)
+        public ActionResult GetAllReviewsFromUser(int userId)
         {
             string jsonResult;
             var dt = Reviews.GetUserReviews(userId);
             jsonResult = JsonConvert.SerializeObject(dt);
             return Ok(jsonResult);
         }
-       
+        [Route("reviewId/{id}")]
+        [HttpGet]
+        public ActionResult GetReviewFromReviewId(int id)
+        {
+            string jsonResult;
+            var dt = Reviews.GetReviewByReviewId(id);
+            jsonResult = JsonConvert.SerializeObject(dt);
+            return Ok(jsonResult);
+        }
+
         [HttpPost]
         public ActionResult AddReview(Review review)
         {

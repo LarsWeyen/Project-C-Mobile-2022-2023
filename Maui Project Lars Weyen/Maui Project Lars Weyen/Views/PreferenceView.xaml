@@ -9,7 +9,7 @@
     <VerticalStackLayout Margin="10">
         <VerticalStackLayout>
             <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10">
-                <VerticalStackLayout HorizontalOptions="Center" Margin="0,30,0,40" Spacing="10">
+                <VerticalStackLayout HorizontalOptions="Center" Margin="0,30,0,30" Spacing="10">
                     <Frame CornerRadius="999" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686" WidthRequest="130" HeightRequest="130">
                         <Image Source="{Binding UserInfo.ProfilePicUrl}"   Aspect="AspectFill"/>
                     </Frame>

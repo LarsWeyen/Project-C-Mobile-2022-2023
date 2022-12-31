@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Java.Util.Jar.Attributes;
 
 
 namespace Maui_Project_Lars_Weyen.ViewModels
@@ -20,14 +21,16 @@ namespace Maui_Project_Lars_Weyen.ViewModels
     {
         HomeService service;
 
-        [ObservableProperty]
-        List<Review> reviews;
+        
          
         public HomeViewModel(HomeService service)
         {
             this.service = service;
             GetReviews();
         }
+
+        [ObservableProperty]
+        List<Review> reviews;
 
         [RelayCommand]
         async Task GetReviews()
@@ -41,6 +44,16 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             var result = await App.Current.MainPage.ShowPopupAsync(new SortingPopUp());
             var sort = (Sorting)result;
             Reviews = await service.GetReviews(sort.OrderBy,sort.SortBy);
-        }   
+        }
+        [RelayCommand]
+        async Task GoToSelectedGame(Review review)
+        {
+            await Shell.Current.GoToAsync($"{nameof(GameView)}?GameID={review.GameId}");
+        }
+        [RelayCommand]
+        async Task OpenReview(Review review)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ReviewView)}?ReviewId={review.ReviewId}");
+        }
     }
 }
