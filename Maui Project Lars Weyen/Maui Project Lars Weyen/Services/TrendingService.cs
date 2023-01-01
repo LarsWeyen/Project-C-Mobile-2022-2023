@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,11 @@ namespace Maui_Project_Lars_Weyen.Services
             client.DefaultRequestHeaders.Add("Authorization", "Bearer a7jhn83u76snrv5htrdkt8ia8c7t23");
         }
 
-        public async Task<List<Game>> GetGames()
+        public async Task<List<Review>> GetTrendingGames()
         {
-            var content = new StringContent($"fields name,cover.image_id,videos.video_id;where name ~ *\"Modern warfare\"* & version_parent = null & category = 0 & cover.image_id != null;;", Encoding.UTF8, "text/plain");
-            var response = await client.PostAsync("https://api.igdb.com/v4/games/", content);
+            var response = await client.GetAsync($"http://192.168.0.145:7777/api/TrendingGames");
             var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Game>>(responseString);
+            return JsonConvert.DeserializeObject<List<Review>>(responseString);
         }
     }
 }

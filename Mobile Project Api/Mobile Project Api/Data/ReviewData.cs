@@ -58,6 +58,14 @@ namespace Mobile_Project_Api.Data
             result = (SelectResult)base.BaseResult;
             return result;
         }
+        public SelectResult SelectTrendingGames()
+        {
+            var result = new SelectResult();
+            string query = $"select TOP 9 GameId,GameImageId from Reviews where GameId IS NOT null group by GameId,GameImageId order by SUM(Rating) DESC";
+            base.SelectRecords(query);
+            result = (SelectResult)base.BaseResult;
+            return result;
+        }
 
         public SelectResult SelectReviewsByGameId(int gameId)
         {

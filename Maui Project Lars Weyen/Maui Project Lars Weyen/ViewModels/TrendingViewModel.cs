@@ -14,11 +14,9 @@ namespace Maui_Project_Lars_Weyen.ViewModels
 {
     [INotifyPropertyChanged]
     public partial class TrendingViewModel
-    {     
-        [ObservableProperty]
-        Game test;
-
-        public ObservableCollection<Game> Games { get; set; } = new();
+    {         
+        public ObservableCollection<Review> CarouselGames { get; set; } = new();
+        public ObservableCollection<Review> Games { get; set; } = new();
 
         TrendingService service;
         public TrendingViewModel(TrendingService service)
@@ -29,12 +27,25 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         async Task GetGames()
         {
-            var games = await service.GetGames();
-            foreach (var game in games)
-            {
-                Games.Add(game);
-            }
+            CarouselGames.Clear();
+            Games.Clear();
+            var games = await service.GetTrendingGames();
             
+            var carouselGames = games.Take(3).ToList();
+            foreach (var item in carouselGames)
+            {
+                CarouselGames.Add(item);
+            }
+            var remaining = games.Skip(3).Take(games.Count());
+            foreach (var item in remaining)
+            {
+                Games.Add(item);
+            }
+        }
+        [RelayCommand]
+        async Task GoToSelectedGame(Review game)
+        {
+            await Shell.Current.GoToAsync($"{nameof(GameView)}?GameID={game.GameId}");
         }
     }
 }
