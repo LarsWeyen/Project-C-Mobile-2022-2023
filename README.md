@@ -24,6 +24,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *06/12/2022: Popup gemaakt op de homepagina waardoor je kan sorteren op verschillende opties*
 * *31/12/2022: Ervoor gezorgt dat als je op een review drukt de volledige review kan bekijken*
 * *1/01/2023: Trending pagina laat meest gereviewde games zien, carousel veranderd om de 5 seconden*
+* *2/01/2023: Converters toegevoegd die de kleuren van de rating aanpassen*
 
 # Optioneel: Screenshots
 *Voorzie eventueel enkele screenshots van je app in actie.*
