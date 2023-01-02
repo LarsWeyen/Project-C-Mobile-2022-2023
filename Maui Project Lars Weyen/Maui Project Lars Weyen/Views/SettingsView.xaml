@@ -4,7 +4,8 @@
              x:Class="Maui_Project_Lars_Weyen.Views.SettingsView"
              Shell.NavBarIsVisible="False"
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
-             x:DataType="viewmodel:SettingsViewModel">
+             x:DataType="viewmodel:SettingsViewModel"
+             BackgroundColor="#18171F">
     <VerticalStackLayout Margin="10">
         <Label 
             Text="Change Settings"

@@ -46,6 +46,7 @@ namespace Maui_Project_Lars_Weyen.Models
         public List<Genre> genres { get; set; }
         public string name { get; set; }
         public List<Platform> platforms { get; set; }
+        public double rating { get; set; }
         public List<SimilarGame> similar_games { get; set; }
         public List<Video> videos { get; set; }
     }

@@ -7,6 +7,7 @@
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
              x:DataType="viewmodel:GameViewModel"
              xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
+             BackgroundColor="#18171F"
              >
     <ScrollView>
     <VerticalStackLayout>
@@ -48,11 +49,12 @@
                    TextColor="#E8E8E8"/>
             <Frame CornerRadius="999" IsClippedToBounds="True" 
                    WidthRequest="48" HeightRequest="48" Padding="0" 
-                   BackgroundColor="Transparent" BorderColor="#868686" 
+                   BackgroundColor="Transparent" BorderColor="{Binding Game.rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}" 
                    Grid.Column="1" VerticalOptions="End" Margin="5"
                    >
-                <Label Text="5.6"
+                <Label Text="{Binding Game.rating,Converter={StaticResource GameRatingConverter}}"
                        FontSize="15"
+                       TextColor="{Binding Game.rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=100}"
                        FontFamily="Semibold"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"/>
@@ -229,9 +231,10 @@
                                             </Frame.GestureRecognizers>
                                             <Image Source="{Binding ProfilePicUrl}" Aspect="AspectFill"/>
                                         </Frame>
-                                        <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="#868686" Grid.Row="1" HorizontalOptions="Start" Margin="10">
+                                        <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}" Grid.Row="1" HorizontalOptions="Start" Margin="10">
                                             <Label Text="{Binding Rating}"
                                                FontSize="15"
+                                               TextColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}"
                                                FontFamily="Semibold"
                                                VerticalOptions="Center"
                                                HorizontalOptions="Center"/>

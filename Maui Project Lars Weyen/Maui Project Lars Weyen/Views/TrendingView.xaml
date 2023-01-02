@@ -8,6 +8,7 @@
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
              x:DataType="viewmodel:TrendingViewModel"
              xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
+             BackgroundColor="#18171F"
              Shell.NavBarIsVisible="False">
     <VerticalStackLayout Margin="10">
         <VerticalStackLayout>

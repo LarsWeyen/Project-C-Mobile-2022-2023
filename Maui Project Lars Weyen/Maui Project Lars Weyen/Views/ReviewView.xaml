@@ -45,16 +45,21 @@
                                                HeightRequest="71" 
                                                HorizontalOptions="Start"
                                                Margin="5">
-                <!--<Frame.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}},Path=GoToUserProfileCommand}"/>
-                </Frame.GestureRecognizers>-->
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="{Binding Review.UserId}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ReviewViewModel}},Path=GoToUserProfileCommand}"/>
+                </Frame.GestureRecognizers>
                 <Image Source="{Binding Review.ProfilePicUrl}" Aspect="AspectFill"/>
             </Frame>
 
             <Label FontSize="20"
                    FontFamily="Semibold"
-                   Text="{Binding Review.Username}" VerticalOptions="Center" />
+                   Text="{Binding Review.Username}" VerticalOptions="Center" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="{Binding Review.UserId}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ReviewViewModel}},Path=GoToUserProfileCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
         </HorizontalStackLayout>
         <VerticalStackLayout Margin="15">
             <Label Text="{Binding Review.ReviewDescription}"

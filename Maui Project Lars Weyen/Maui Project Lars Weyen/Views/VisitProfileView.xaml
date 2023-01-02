@@ -86,9 +86,10 @@
                                         </Frame.GestureRecognizers>
                                         <Image Source="{Binding GameImageId,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill"/>
                                     </Frame>
-                                    <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="#868686" Grid.Row="1" HorizontalOptions="Start" Margin="5">
+                                    <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}" Grid.Row="1" HorizontalOptions="Start" Margin="5">
                                         <Label Text="{Binding Rating}"
                                                FontSize="15"
+                                               TextColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}"
                                                FontFamily="Semibold"
                                                VerticalOptions="Center"
                                                HorizontalOptions="Center"/>

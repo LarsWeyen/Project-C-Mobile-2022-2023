@@ -56,9 +56,10 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         {
             OverviewVisible = true;
             ReviewsVisible = false;
-            string selected = "#9CD1C0";          
+            string selected = "#9CD1C0";
+            string unselected = "#18171F";
             Overview = Color.FromArgb(selected);
-            ReviewsColor = Colors.Black;
+            ReviewsColor = Color.FromArgb(unselected);
             ReviewsLabel = Colors.White;
             OverviewLabel = Color.FromArgb(selected); 
         }
@@ -68,7 +69,8 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             OverviewVisible = false;
             ReviewsVisible = true;
             string selected = "#9CD1C0";
-            Overview = Colors.Black;
+            string unselected = "#18171F";
+            Overview = Color.FromArgb(unselected);
             ReviewsColor = Color.FromArgb(selected);
             OverviewLabel = Colors.White;
             ReviewsLabel = Color.FromArgb(selected);

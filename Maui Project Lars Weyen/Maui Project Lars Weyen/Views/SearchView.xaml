@@ -6,7 +6,8 @@
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
              x:DataType="viewmodel:SearchViewModel"
              xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#18171F">
     
     <VerticalStackLayout Margin="10"
                          Spacing="20">
