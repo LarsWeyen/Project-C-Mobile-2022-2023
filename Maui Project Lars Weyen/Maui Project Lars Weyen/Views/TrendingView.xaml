@@ -14,8 +14,7 @@
         <VerticalStackLayout>
             <Label 
             Text="Trending"
-            FontSize="20" 
-            FontFamily="Bold"/>
+            Style="{StaticResource lblTitle}"/>
             <CarouselView HorizontalOptions="FillAndExpand"
                       VerticalOptions="FillAndExpand"
                       ItemsSource="{Binding CarouselGames}" HeightRequest="200"

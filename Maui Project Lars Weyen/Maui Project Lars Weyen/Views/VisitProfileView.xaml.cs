@@ -17,5 +17,6 @@ public partial class VisitProfileView : ContentPage
         base.OnNavigatedTo(args);
 		viewModel.GetUserProfileCommand.Execute(null);
 		viewModel.GetReviewsCommand.Execute(null);
+		viewModel.CheckLikedCommand.Execute(null);
     }
 }

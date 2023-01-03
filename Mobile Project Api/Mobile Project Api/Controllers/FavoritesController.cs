@@ -27,7 +27,7 @@ namespace Mobile_Project_Api.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Favorite> AddOrRemoveToWishlist(Favorite fav)
+        public ActionResult<Favorite> AddOrRemoveToFavorites(Favorite fav)
         {
             var dt = Favorites.GetFavoritesDataTable(fav);
             if (dt.Rows.Count == 0)

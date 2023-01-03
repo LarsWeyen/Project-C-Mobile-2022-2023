@@ -13,8 +13,7 @@
         <HorizontalStackLayout Spacing="250">
             <Label 
             Text="Home"
-            FontSize="20" 
-            FontFamily="Bold"              
+            Style="{StaticResource lblTitle}"           
                 />
             <Button ImageSource="settings_icon.svg"
                     BackgroundColor="Transparent"

@@ -19,7 +19,7 @@
                    FontSize="16"
                    FontFamily="Semibold"
                    Opacity=".8"/>
-                <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686">
+                <Frame Style="{StaticResource frame}">
                     <Entry Placeholder="Call of Duty, Elden Ring, ..." BackgroundColor="#212026" FontFamily="Regular" FontSize="14" Margin="2" TextChanged="Entry_TextChanged" x:Name="entrySearch" Text="{Binding EntrySearch}"/>
                 </Frame>
                 <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">

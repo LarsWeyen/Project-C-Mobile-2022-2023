@@ -5,7 +5,8 @@
              Title="{Binding UserInfo.Username}"
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
              xmlns:model="clr-namespace:Maui_Project_Lars_Weyen.Models"
-             x:DataType="viewmodel:VisitProfileViewModel">
+             x:DataType="viewmodel:VisitProfileViewModel"
+             BackgroundColor="#18171F">
     <ScrollView>
         <VerticalStackLayout Spacing="10">
             <Frame BackgroundColor="#212026" Margin="10">
@@ -21,12 +22,12 @@
                         HeightRequest="43"
                            Padding="0">
 
-                        <!--<Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoToAddReviewCommand}"/>
-                        </Frame.GestureRecognizers>-->
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LikeProfileCommand}"/>
+                        </Frame.GestureRecognizers>
                         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
-                            <Label Text="Like Profile" Margin="0,1,0,0"/>
-                            <Image Source="thumbs_up.svg"/>
+                            <Label Text="{Binding Text}" Margin="0,1,0,0"/>
+                            <Image Source="{Binding ThumbIcon}"/>
                         </HorizontalStackLayout>
                     </Frame>
                     <Label Text="{Binding UserInfo.Username}" Grid.Row="1" Grid.ColumnSpan="2"

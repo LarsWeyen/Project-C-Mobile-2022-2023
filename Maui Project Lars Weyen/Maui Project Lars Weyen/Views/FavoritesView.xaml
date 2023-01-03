@@ -9,8 +9,7 @@
     <VerticalStackLayout Margin="10" Spacing="20">
         <Label 
             Text="Your Favorites"
-            FontSize="20" 
-            FontFamily="Bold"/>
+            Style="{StaticResource lblTitle}"/>
         <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" >
             <CollectionView ItemsLayout="VerticalGrid,2"
                         ItemsSource="{Binding Games}"

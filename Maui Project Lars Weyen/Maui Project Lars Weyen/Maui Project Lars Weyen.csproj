@@ -63,6 +63,7 @@
 	  <None Remove="Resources\Images\moon_icon.svg" />
 	  <None Remove="Resources\Images\plus_icon.svg" />
 	  <None Remove="Resources\Images\profile_icon.svg" />
+	  <None Remove="Resources\Images\remove_icon.svg" />
 	  <None Remove="Resources\Images\search_icon.svg" />
 	  <None Remove="Resources\Images\settings_icon.svg" />
 	  <None Remove="Resources\Images\startimage.svg" />
