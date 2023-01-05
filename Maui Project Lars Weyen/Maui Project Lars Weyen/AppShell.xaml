@@ -13,6 +13,7 @@
         ContentTemplate="{DataTemplate local:StartView}"
         Route="StartView" 
         />
+   
 
     <TabBar>
         <Tab Title="Home" Icon="home_icon.svg">

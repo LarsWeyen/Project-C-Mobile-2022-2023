@@ -49,7 +49,7 @@
                    TextColor="#E8E8E8"/>
             <Frame CornerRadius="999" IsClippedToBounds="True" 
                    WidthRequest="48" HeightRequest="48" Padding="0" 
-                   BackgroundColor="Transparent" BorderColor="{Binding Game.rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}" 
+                   BackgroundColor="Transparent" BorderColor="{Binding Game.rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=100}" 
                    Grid.Column="1" VerticalOptions="End" Margin="5"
                    >
                 <Label Text="{Binding Game.rating,Converter={StaticResource GameRatingConverter}}"

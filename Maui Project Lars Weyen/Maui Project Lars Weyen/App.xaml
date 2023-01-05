@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Maui_Project_Lars_Weyen"
              x:Class="Maui_Project_Lars_Weyen.App"
-             xmlns:converter="clr-namespace:Maui_Project_Lars_Weyen.Converters">
+             xmlns:converter="clr-namespace:Maui_Project_Lars_Weyen.Converters"
+             xmlns:behavior="clr-namespace:Maui_Project_Lars_Weyen.Behaviors">
     <Application.Resources>
         <ResourceDictionary>
             <converter:GameRatingConverter x:Key="GameRatingConverter"></converter:GameRatingConverter>
             <converter:GameRatingColorConverter x:Key="GameRatingColorConverter"></converter:GameRatingColorConverter>
+            <converter:CharLimitConverter x:Key="CharLimitConverter"></converter:CharLimitConverter>
+            <behavior:PasswordLengthBehavior x:Key="PasswordLengthBehavior"></behavior:PasswordLengthBehavior>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

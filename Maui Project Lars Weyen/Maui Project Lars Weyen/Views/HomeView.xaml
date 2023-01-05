@@ -41,7 +41,7 @@
                                             <TapGestureRecognizer CommandParameter="{Binding .}"
                                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewModel}},Path=GoToSelectedGameCommand}"/>
                                         </Frame.GestureRecognizers>
-                                        <Image Source="{Binding GameImageId,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill"/>
+                                        <Image Source="{Binding GameImageId,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill" VerticalOptions="Start"/>
                                     </Frame>
                                     <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}" Grid.Row="1" HorizontalOptions="Start" Margin="5">
                                         <Label Text="{Binding Rating}"
@@ -56,7 +56,7 @@
                                            FontFamily="Semibold"
                                            Text="{Binding GameNaam}"
                                            />
-                                        <Label Text="{Binding ReviewDescription}"
+                                        <Label Text="{Binding ReviewDescription,Converter={StaticResource CharLimitConverter}}"
                                                Opacity=".7"
                                                FontFamily="Regular"
                                                FontSize="12"/>
