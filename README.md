@@ -26,6 +26,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *1/01/2023: Trending pagina laat meest gereviewde games zien, carousel veranderd om de 5 seconden*
 * *2/01/2023: Converters toegevoegd die de kleuren van de rating aanpassen*
 * *3/01/2023: Functie om mensen hun profiel te liken toegevoegd en een paar stylings*
+* *5/01/2023: Converter toegevoegd dat de review beschrijving verkort op de homepagina en een behavior op de password entry*
 
 # Optioneel: Screenshots
 *Voorzie eventueel enkele screenshots van je app in actie.*
