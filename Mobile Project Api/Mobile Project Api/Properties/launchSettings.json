@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "MyMenuWebAPI": {
+    "MobileAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
