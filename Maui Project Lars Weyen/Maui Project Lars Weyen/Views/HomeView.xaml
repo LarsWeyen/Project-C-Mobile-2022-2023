@@ -24,44 +24,46 @@
         
         <VerticalStackLayout>
             <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" >
-            <CollectionView ItemsSource="{Binding Reviews}"
+                <RefreshView Command="{Binding GetReviewsCommand}"
+                             IsRefreshing="{Binding IsBusy}">
+                    <CollectionView ItemsSource="{Binding Reviews}"
                             HeightRequest="640"
                             Margin="0,10,0,10">
-                <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Review">
-                            <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" Margin="12,12,12,12">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Review">
+                                <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" Margin="12,12,12,12">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding .}"
                                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewModel}},Path=OpenReviewCommand}"/>
-                                </Frame.GestureRecognizers>
-                                <Grid ColumnDefinitions="122,204"
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnDefinitions="122,204"
                                       RowDefinitions="121,56">
-                                    <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
-                                        <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer CommandParameter="{Binding .}"
+                                        <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}"
                                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewModel}},Path=GoToSelectedGameCommand}"/>
-                                        </Frame.GestureRecognizers>
-                                        <Image Source="{Binding GameImageId,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill" VerticalOptions="Start"/>
-                                    </Frame>
-                                    <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}" Grid.Row="1" HorizontalOptions="Start" Margin="5">
-                                        <Label Text="{Binding Rating}"
+                                            </Frame.GestureRecognizers>
+                                            <Image Source="{Binding GameImageId,StringFormat='https://images.igdb.com/igdb/image/upload/t_cover_big/{0}.jpg'}" WidthRequest="130" HeightRequest="130"  Aspect="AspectFill" VerticalOptions="Start"/>
+                                        </Frame>
+                                        <Frame CornerRadius="999" IsClippedToBounds="True" WidthRequest="48" HeightRequest="48" Padding="0" BackgroundColor="#212026" BorderColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}" Grid.Row="1" HorizontalOptions="Start" Margin="5">
+                                            <Label Text="{Binding Rating}"
                                                TextColor="{Binding Rating,Converter={StaticResource GameRatingColorConverter},ConverterParameter=10}"
                                                FontSize="15"
                                                FontFamily="Semibold"
                                                VerticalOptions="Center"
                                                HorizontalOptions="Center"/>
-                                    </Frame>
-                                    <VerticalStackLayout Grid.Column="1" Margin="10">
-                                        <Label FontSize="15"
+                                        </Frame>
+                                        <VerticalStackLayout Grid.Column="1" Margin="10">
+                                            <Label FontSize="15"
                                            FontFamily="Semibold"
                                            Text="{Binding GameNaam}"
                                            />
-                                        <Label Text="{Binding ReviewDescription,Converter={StaticResource CharLimitConverter}}"
+                                            <Label Text="{Binding ReviewDescription,Converter={StaticResource CharLimitConverter}}"
                                                Opacity=".7"
                                                FontFamily="Regular"
                                                FontSize="12"/>
-                                    </VerticalStackLayout>
-                                    <Label Grid.Row="1" Grid.Column="1"
+                                        </VerticalStackLayout>
+                                        <Label Grid.Row="1" Grid.Column="1"
                                            Text="Read more ->" 
                                            VerticalOptions="End"
                                            HorizontalOptions="End"
@@ -69,12 +71,13 @@
                                            FontSize="13"
                                            FontFamily="SemiBold"
                                            TextColor="#B6B6B6"/>
-                                </Grid>
-                            </Frame>
-                        
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                    </Grid>
+                                </Frame>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
             </Frame>
         </VerticalStackLayout>
     </VerticalStackLayout>

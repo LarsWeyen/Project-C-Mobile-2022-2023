@@ -45,7 +45,7 @@ namespace Mobile_Project_Api.Data
         public SelectResult SelectReviews(int userId)
         {
             var result = new SelectResult();
-            string query = $"select * from Reviews where UserId = '{userId}'";
+            string query = $"select * from Reviews where UserId = '{userId}' order by reviewid desc";
             base.SelectRecords(query);
             result = (SelectResult)base.BaseResult;
             return result;

@@ -71,9 +71,9 @@ namespace Maui_Project_Lars_Weyen.ViewModels
                 }
                 
             }
+            //genres = "Shooter","Survival",...
             string genres = String.Join(",", genresList);
-
-
+            
             Games = await searchService.SearchByGenre(genres);
         }
 

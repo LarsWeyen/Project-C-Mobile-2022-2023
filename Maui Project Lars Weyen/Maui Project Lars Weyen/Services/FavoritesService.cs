@@ -24,16 +24,20 @@ namespace Maui_Project_Lars_Weyen.Services
             var response = await client.GetAsync($"http://192.168.0.145:7777/api/GetAllFavorites?userId={userId}");
             var responseString = await response.Content.ReadAsStringAsync();
             List<Favorite> favorites = JsonConvert.DeserializeObject<List<Favorite>>(responseString);
-            List<int> id = new List<int>();
-            foreach (var fav in favorites)
+            if (favorites.Count != 0)
             {
-                id.Add(fav.GameId);
+                List<int> id = new List<int>();
+                foreach (var fav in favorites)
+                {
+                    id.Add(fav.GameId);
+                }
+                string stringIds = String.Join(",", id);
+                var content = new StringContent($"fields cover.image_id;where id = ({stringIds});", Encoding.UTF8, "text/plain");
+                var responseGameDb = await client.PostAsync("https://api.igdb.com/v4/games/", content);
+                var responseStringGameDb = await responseGameDb.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<Game>>(responseStringGameDb);
             }
-            string stringIds = String.Join(",", id);
-            var content = new StringContent($"fields cover.image_id;where id = ({stringIds});", Encoding.UTF8, "text/plain");
-            var responseGameDb = await client.PostAsync("https://api.igdb.com/v4/games/", content);
-            var responseStringGameDb = await responseGameDb.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Game>>(responseStringGameDb);
+            return null;
         }
     }
 }

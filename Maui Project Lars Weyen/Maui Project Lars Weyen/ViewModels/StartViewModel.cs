@@ -15,12 +15,12 @@ namespace Maui_Project_Lars_Weyen.ViewModels
     [INotifyPropertyChanged]
     public partial class StartViewModel
     {
-        LoginAndRegisterService service;
-        HttpClient client;
-        public StartViewModel(LoginAndRegisterService service)
+        StartService service;
+        
+        public StartViewModel(StartService service)
         {
             this.service = service;
-            this.client = new HttpClient();
+            
             ProfilePIC = new Image();
             ProfilePIC.Source ="test.jpg";
             CheckUserLogin();
@@ -48,23 +48,12 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         async Task GoToNextRegisterPage()
         {
-            if (string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 return;
-            }
-            if (string.IsNullOrWhiteSpace(username))
-            {
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(username))
-            {
-                return ;
-            }
-            else
-            {
-                await Shell.Current.GoToAsync($"{nameof(RegisterImageView)}");
-            }
-            
+            }         
+           
+            await Shell.Current.GoToAsync($"{nameof(RegisterImageView)}");  
         }
 
         [RelayCommand]
@@ -88,8 +77,9 @@ namespace Maui_Project_Lars_Weyen.ViewModels
                 {"Email",email },
                 {"Password",password }
             };
-            var content = new StringContent(JsonConvert.SerializeObject(postData), Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("http://192.168.0.145:7777/api/SignIn", content);     
+            
+            var response = await service.LoginUser(postData);
+            
             var responseString = await response.Content.ReadAsStringAsync();
             if (responseString == "User not found")
             {
@@ -118,8 +108,8 @@ namespace Maui_Project_Lars_Weyen.ViewModels
                 {"Password",password },
                 {"ProfilePicUrl",profilePicUrl }
             };
-            var content = new StringContent(JsonConvert.SerializeObject(postData), Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("http://192.168.0.145:7777/api/Register", content);
+
+            var response = await service.RegisterUser(postData);
             var responseString = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {

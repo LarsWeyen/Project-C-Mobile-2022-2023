@@ -21,6 +21,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         public bool darkmode;
         public PrefrencesViewModel()
         {
+            //Gets the bool value from App Preferences, if it doesn't exist it will return true
             darkmode = Preferences.Get(nameof(App.darkmode), true);
         }
 

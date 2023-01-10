@@ -19,17 +19,22 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         List<Game> games;
         [ObservableProperty]
         User userInfo;
+        [ObservableProperty]
+        bool isBusy;
 
         FavoritesService service;
         public FavoritesViewModel(FavoritesService service)
         {
             this.service = service;
+            //Logged in user
             UserInfo = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
         }
         [RelayCommand]
         private async Task GetFavorites()
         {
+            IsBusy = true;
             Games = await service.GetUserFavorites(UserInfo.UserId);
+            IsBusy= false;
         }
         [RelayCommand]
         async Task GoToSelectedGame(Game game)

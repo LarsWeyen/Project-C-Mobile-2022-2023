@@ -78,6 +78,10 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Review">
                             <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" Margin="12">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:VisitProfileViewModel}},Path=OpenReviewCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid ColumnDefinitions="122,204"
                                       RowDefinitions="121,56">
                                     <Frame CornerRadius="8" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686">
@@ -100,7 +104,7 @@
                                            FontFamily="Semibold"
                                            Text="{Binding GameNaam}"
                                            />
-                                        <Label Text="{Binding ReviewDescription}"
+                                        <Label Text="{Binding ReviewDescription,Converter={StaticResource CharLimitConverter}}"
                                                Opacity=".7"
                                                FontFamily="Regular"
                                                FontSize="12"/>

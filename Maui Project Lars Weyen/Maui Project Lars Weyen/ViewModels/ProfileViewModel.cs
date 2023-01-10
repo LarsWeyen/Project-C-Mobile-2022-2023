@@ -26,8 +26,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         public ProfileViewModel(ProfileService service)
         {
             this.service = service;
-            GetProfile();
-            GetReviews();
+           Reviews= new List<Review>();
         }
         [RelayCommand]
         private async void GetProfile()
@@ -44,8 +43,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         private async Task GetReviews()
         {
-            if (Reviews != null)
-                return;
+            Reviews.Clear();
            Reviews = await service.GetUserReviews();
         }
 
@@ -53,6 +51,11 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         async Task GoToSelectedGame(Review review)
         {
             await Shell.Current.GoToAsync($"{nameof(GameView)}?GameID={review.GameId}");
+        }
+        [RelayCommand]
+        async Task OpenReview(Review review)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ReviewView)}?ReviewId={review.ReviewId}");
         }
     }
 }

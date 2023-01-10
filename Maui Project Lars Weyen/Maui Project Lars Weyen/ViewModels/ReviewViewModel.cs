@@ -37,14 +37,16 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         async Task GoToUserProfile(int userId)
         {
             User UserInfo = JsonConvert.DeserializeObject<User>(Preferences.Get(nameof(App.userInfo), ""));
+            //If you click on your own profile from a review you will be redirected to your own profile instead of VisitProfileView
             if (UserInfo.UserId == userId)
             {
-                await Shell.Current.GoToAsync($"{nameof(ProfileView)}");
+                await Shell.Current.GoToAsync($"//{nameof(ProfileView)}");
             }
             else
             {
                 await Shell.Current.GoToAsync($"{nameof(VisitProfileView)}?UserId={userId}");
             }
         }
+        
     }
 }

@@ -29,15 +29,12 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [ObservableProperty]
         string text = "Like Profile";
        
-
         VisitUserProfileService service;
         public VisitProfileViewModel(VisitUserProfileService service)
         {
             this.service = service;
             
         }
-
-        
 
         [RelayCommand]
         async Task GetUserProfile()
@@ -67,6 +64,7 @@ namespace Maui_Project_Lars_Weyen.ViewModels
             };
             var response = await service.AddToOrRemoveProfileLike(postData);
             var responseString = await response.Content.ReadAsStringAsync();
+            //Check if logged in user has liked this profile or not
             if (responseString=="Item added")
             {
                await service.PutProfileLike(true,UserId);
@@ -93,6 +91,11 @@ namespace Maui_Project_Lars_Weyen.ViewModels
                 ThumbIcon = "remove_icon.svg";
                 Text = "Remove Like";
             }
+        }
+        [RelayCommand]
+        async Task OpenReview(Review review)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ReviewView)}?ReviewId={review.ReviewId}");
         }
     }
 }

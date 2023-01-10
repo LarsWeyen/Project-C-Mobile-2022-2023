@@ -16,7 +16,7 @@ namespace Maui_Project_Lars_Weyen.Converters
             {
                 return beschrijving;
             }
-            return beschrijving.Substring(24) + " ...";
+            return beschrijving.Substring(0,170) + " ...";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

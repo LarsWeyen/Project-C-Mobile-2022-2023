@@ -15,7 +15,7 @@ public partial class ProfileView : ContentPage
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
-        viewModel.GetReviewsCommand.Execute(args);
-        viewModel.GetProfileCommand.Execute(args);
+        viewModel.GetReviewsCommand.Execute(null);
+        viewModel.GetProfileCommand.Execute(null);
     }
 }

@@ -85,18 +85,20 @@ namespace Maui_Project_Lars_Weyen.ViewModels
 
         public void FillComboBox()
         {
-            numbers = new List<int>();
-            numbers.Add(0);
-            numbers.Add(1);
-            numbers.Add(2);
-            numbers.Add(3);
-            numbers.Add(4);
-            numbers.Add(5);
-            numbers.Add(6);
-            numbers.Add(7);
-            numbers.Add(8);
-            numbers.Add(9);
-            numbers.Add(10);
+            numbers = new List<int>
+            {
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+            };
         }
     }
 }

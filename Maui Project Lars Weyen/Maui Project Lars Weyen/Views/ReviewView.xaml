@@ -4,7 +4,9 @@
              x:Class="Maui_Project_Lars_Weyen.Views.ReviewView"
              Title=""
              xmlns:viewmodel="clr-namespace:Maui_Project_Lars_Weyen.ViewModels"
-             x:DataType="viewmodel:ReviewViewModel">
+             x:DataType="viewmodel:ReviewViewModel"
+            >
+    <ScrollView>
     <VerticalStackLayout>
         <Grid ColumnDefinitions="300,85" 
               HeightRequest="200">
@@ -63,10 +65,14 @@
                 </Label.GestureRecognizers>
             </Label>
         </HorizontalStackLayout>
-        <VerticalStackLayout Margin="15">
-            <Label Text="{Binding Review.ReviewDescription}"
+        
+            <VerticalStackLayout Margin="15">
+                <Label Text="{Binding Review.ReviewDescription}"
                    FontSize="16"
                    FontFamily="Regular"/>
-        </VerticalStackLayout>
+            </VerticalStackLayout>
+       
+       
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -211,13 +211,21 @@
                 
             </Frame>
                 <Frame CornerRadius="18" IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" Margin="10" IsVisible="{Binding ReviewsVisible}">
-                    <CollectionView ItemsSource="{Binding Reviews}">
+                    <CollectionView ItemsSource="{Binding Reviews}" MinimumHeightRequest="120">
                         <CollectionView.EmptyView>
-                            <Label Text="Empty" TextColor="White"/>
+                            <ContentView>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="No reviews yet" TextColor="White" FontFamily="Semibold" />
+                                </StackLayout>
+                            </ContentView>
                         </CollectionView.EmptyView>
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="model:Review">
                                 <Frame CornerRadius="8" IsClippedToBounds="True" Padding="4" BackgroundColor="#212026" BorderColor="#868686" Margin="12">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                              Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}},Path=OpenReviewCommand}"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid ColumnDefinitions="80,250"
                                       RowDefinitions="121,56">
                                         <Frame CornerRadius="9999"  IsClippedToBounds="True" Padding="0" BackgroundColor="#212026" BorderColor="#868686" 
@@ -244,7 +252,7 @@
                                            FontFamily="Semibold"
                                            Text="{Binding Username}"
                                            />
-                                            <Label Text="{Binding ReviewDescription}"
+                                            <Label Text="{Binding ReviewDescription,Converter={StaticResource CharLimitConverter}}"
                                                Opacity=".7"
                                                FontFamily="Regular"
                                                FontSize="12"/>

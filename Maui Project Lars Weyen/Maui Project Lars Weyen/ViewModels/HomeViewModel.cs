@@ -21,8 +21,6 @@ namespace Maui_Project_Lars_Weyen.ViewModels
     {
         HomeService service;
 
-        
-         
         public HomeViewModel(HomeService service)
         {
             this.service = service;
@@ -31,19 +29,23 @@ namespace Maui_Project_Lars_Weyen.ViewModels
 
         [ObservableProperty]
         List<Review> reviews;
+        [ObservableProperty]
+        bool isBusy;
 
         [RelayCommand]
         async Task GetReviews()
         {
+            IsBusy = true;
             Reviews = await service.GetReviews("ReviewId","desc");
+            IsBusy = false;
         }
 
         [RelayCommand]
         async Task OpenPopUp()
         {
             var result = await App.Current.MainPage.ShowPopupAsync(new SortingPopUp());
-            var sort = (Sorting)result;
-            Reviews = await service.GetReviews(sort.OrderBy,sort.SortBy);
+            var sort = (Sorting)result;         
+            Reviews = await service.GetReviews(sort.OrderBy,sort.SortBy);           
         }
         [RelayCommand]
         async Task GoToSelectedGame(Review review)

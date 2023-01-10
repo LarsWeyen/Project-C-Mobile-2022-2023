@@ -13,8 +13,17 @@
         ContentTemplate="{DataTemplate local:StartView}"
         Route="StartView" 
         />
-   
 
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate views:GameView}"
+        Route="GameView" 
+        />
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate views:ReviewView}"
+        Route="ReviewView" 
+        />
     <TabBar>
         <Tab Title="Home" Icon="home_icon.svg">
             <ShellContent  ContentTemplate="{DataTemplate views:HomeView}" Route="HomeView"/>

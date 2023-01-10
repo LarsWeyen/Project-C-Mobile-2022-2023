@@ -98,9 +98,10 @@ namespace Maui_Project_Lars_Weyen.ViewModels
         [RelayCommand]
         async Task GoToUserProfile(Review review)
         {
+            //If you click on your own profile from a review you will be redirected to your own profile instead of VisitProfileView
             if (userInfo.UserId == review.UserId)
             {
-                await Shell.Current.GoToAsync($"{nameof(ProfileView)}");
+                await Shell.Current.GoToAsync($"//{nameof(ProfileView)}");
             }
             else
             {
@@ -147,6 +148,11 @@ namespace Maui_Project_Lars_Weyen.ViewModels
                 string colorHex = "#9CD1C0";
                 HeartFill = Color.FromArgb(colorHex);
             }
+        }
+        [RelayCommand]
+        async Task OpenReview(Review review)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ReviewView)}?ReviewId={review.ReviewId}");
         }
     }
 }
