@@ -70,8 +70,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 * *https://www.syncfusion.com/blogs/post/dotnet-maui-combobox-control.aspx - Combobox*
 * *Powerpoint Week 6 deel 1 - Behaviors*
 * *https://youtu.be/k7m9KzKutjw - Converters*
-* *https://de.freepik.com/vektoren-kostenlos/niedlich-affe-gamer-spielender-spiel-karikatur-vektor-symbol-abbildung-tier-technologie-symbol-isolated_29084475.htm#query=gamepad&position=36&from_view=keyword
-  - App icoontje*
+* *https://de.freepik.com/vektoren-kostenlos/niedlich-affe-gamer-spielender-spiel-karikatur-vektor-symbol-abbildung-tier-technologie-symbol-isolated_29084475.htm#query=gamepad&position=36&from_view=keyword- App icoontje*
 
 # Future work
 
