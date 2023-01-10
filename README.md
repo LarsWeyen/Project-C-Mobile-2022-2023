@@ -48,12 +48,12 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 # Optioneel: Screenshots
 
 <div style="display: flex">
-<img src="Images/Home.png" width="170">
-<img src="Images/Trending.png" width="170">
-<img src="Images/Search.png" width="170">
-<img src="Images/Profile.png" width="170">
-<img src="Images/Preferences.png" width="170">
-<img src="Images/Game.png" width="170">
+<img src="Images/Home.png" width="170" style="margin-right: 8px">
+<img src="Images/Trending.png" width="170" style="margin-right: 8px">
+<img src="Images/Search.png" width="170" style="margin-right: 8px">
+<img src="Images/Profile.png" width="170" style="margin-right: 8px">
+<img src="Images/Preferences.png" width="170" style="margin-right: 8px">
+<img src="Images/Game.png" width="170" style="margin-right: 8px">
 <img src="Images/Review.png" width="170">
 </div>
 
