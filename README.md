@@ -74,4 +74,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 
 # Future work
 
-*Wat zou je nog aanpassen/verbeteren mocht je meer tijd hebben? Hoe zou je dit aanpakken?* 
+* Edit en delete functie bij reviews.
+* Reviews kunnen liken en disliken.
+* Betere gebruikersvriendelijk design.
+* Ervoor zorgen dat een user niet 2x dezelfde game kan reviewen.
