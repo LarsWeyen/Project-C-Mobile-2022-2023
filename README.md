@@ -59,7 +59,7 @@ Opsomming belangrijkste kenmerken en onderdelen/features van de applicatie:
 
 # Videolink
 
-*https://web.microsoftstream.com/video/d8a15369-df8e-41bc-a9c6-2c2c84034b99*
+*[https://web.microsoftstream.com/video/d8a15369-df8e-41bc-a9c6-2c2c84034b99](https://youtu.be/xYx4aBKR4Pw)*
 
 # Bronnen
 
