@@ -10,7 +10,7 @@
     <td align="center" style="display: flex; flex-direction: column">
       YouTube demo of the app
       <a href="https://youtu.be/xYx4aBKR4Pw">
-        <img style="width: 60%" src="Images/Capture.png" alt="YouTube thumbmnail" />
+        <img style="width: 60%" src="Images/Capture.PNG" alt="YouTube thumbmnail" />
       </a>
     </td>
   </tr>
